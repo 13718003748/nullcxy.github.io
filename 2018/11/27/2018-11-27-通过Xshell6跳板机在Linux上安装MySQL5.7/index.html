@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="Null指针">
+
+
+
+<meta name="description" content="前言想在自己的服务器上创建数据库，这里我通过XShell远程连接公司内网机器。如果是自己的服务器，可以直接连接，输入用户名密码即可。">
+<meta name="keywords" content="MySQL,XShell,Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通过Xshell6跳板机在Linux上安装MySQL5.7">
+<meta property="og:url" content="http://yoursite.com/2018/11/27/2018-11-27-通过Xshell6跳板机在Linux上安装MySQL5.7/index.html">
+<meta property="og:site_name" content="Null指针的博客">
+<meta property="og:description" content="前言想在自己的服务器上创建数据库，这里我通过XShell远程连接公司内网机器。如果是自己的服务器，可以直接连接，输入用户名密码即可。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/25/167490b6cb8e68d2?w=671&h=676&f=png&s=63184">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/25/167490b6cb94dc9c?w=671&h=676&f=png&s=63548">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/25/167490b6cbac116c?w=1102&h=579&f=png&s=61325">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/25/167490b6cbb25ad0?w=698&h=258&f=png&s=8564">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/25/167490b6cb910210?w=790&h=124&f=png&s=2227">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/25/167490b6cbdc5446?w=585&h=458&f=png&s=11556">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/25/167490b715cd3d92?w=427&h=40&f=png&s=1062">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/25/167490b7160df5b8?w=779&h=36&f=png&s=2289">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/25/167490b71a421532?w=258&h=37&f=png&s=974">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/25/167491cfb9456284?w=1101&h=168&f=png&s=9072">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/25/167490b76d5bbdd1?w=589&h=86&f=png&s=1476">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/25/167490b7a0f3381f?w=585&h=458&f=png&s=11556">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/25/167490b7b43cf52c?w=214&h=165&f=png&s=1698">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/25/167490b7b50cbbfa?w=289&h=128&f=png&s=1662">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/25/167490b7b8531b59?w=268&h=136&f=png&s=1576">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/25/167490b7ba7ee2d2?w=486&h=548&f=png&s=37416">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/25/167490b7ba9d8f5f?w=486&h=548&f=png&s=34878">
+<meta property="og:updated_time" content="2018-11-27T06:29:10.504Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="通过Xshell6跳板机在Linux上安装MySQL5.7">
+<meta name="twitter:description" content="前言想在自己的服务器上创建数据库，这里我通过XShell远程连接公司内网机器。如果是自己的服务器，可以直接连接，输入用户名密码即可。">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2018/11/25/167490b6cb8e68d2?w=671&h=676&f=png&s=63184">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Null指针的博客" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="img/head/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>通过Xshell6跳板机在Linux上安装MySQL5.7 | Null指针的博客</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Null指针</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Null指针</p>
+        
+
+        
+            <form id="search-form">
+	            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false">
+	            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class="no-result">No results found <i class="fa fa-spinner fa-pulse"></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/photos/">相册</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:1287530995@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/nullcxy" title="GitHub"></a>
+                            
+                                <a class="fa 简书" href="https://www.jianshu.com/u/5e0ee1ba74c6" title="简书"></a>
+                            
+                                <a class="fa QQ" href="tencent://message/?Menu=yes&uin=1287530995&Service=300&sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a595b1714f9d45" title="QQ"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/EDAS/">EDAS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MYSQL/">MYSQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MarkDown/">MarkDown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/">Maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-MVC/">Spring MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XSS/">XSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XShell/">XShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/freemarker/">freemarker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分布式/">分布式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信/">微信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">知世故而不世故才是最善良的成熟</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Null指针</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Null指针</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Null指针</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/photos/">相册</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:1287530995@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/nullcxy" title="GitHub"></a>
+                            
+                                <a class="fa 简书" target="_blank" href="https://www.jianshu.com/u/5e0ee1ba74c6" title="简书"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="tencent://message/?Menu=yes&uin=1287530995&Service=300&sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a595b1714f9d45" title="QQ"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
+</nav>
+      <div class="body-wrap"><aricle id="post-2018-11-27-通过Xshell6跳板机在Linux上安装MySQL5.7" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/11/27/2018-11-27-通过Xshell6跳板机在Linux上安装MySQL5.7/" class="article-date">
+      <time datetime="2018-11-27T06:24:00.000Z" itemprop="datePublished">2018-11-27</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      通过Xshell6跳板机在Linux上安装MySQL5.7
+    </h1>
+  
+
+        
+        	<div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  博文字数： </span>
+        <span class="post-count">763字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">3分钟</span>
+      </span>
+    </span>
+</div>
+        
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/数据库/">数据库</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/XShell/">XShell</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>想在自己的服务器上创建数据库，这里我通过XShell远程连接公司内网机器。如果是自己的服务器，可以直接连接，输入用户名密码即可。</p>
+<a id="more"></a>
+<ul>
+<li>新建新连接<br>输入红色部分配置信息<br><img src="https://user-gold-cdn.xitu.io/2018/11/25/167490b6cb8e68d2?w=671&amp;h=676&amp;f=png&amp;s=63184" alt="连接"><br><img src="https://user-gold-cdn.xitu.io/2018/11/25/167490b6cb94dc9c?w=671&amp;h=676&amp;f=png&amp;s=63548" alt="image.png"><br>成功连接并登录跳板机后，可以通过此跳板机，连接到服务器。</li>
+<li>连接服务器<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@ip地址</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2018/11/25/167490b6cbac116c?w=1102&amp;h=579&amp;f=png&amp;s=61325" alt="服务器"></p>
+<ul>
+<li>查看服务期信息<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip addr</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2018/11/25/167490b6cbb25ad0?w=698&amp;h=258&amp;f=png&amp;s=8564" alt="查看"></p>
+<h1 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h1><h2 id="下载MySQL"><a href="#下载MySQL" class="headerlink" title="下载MySQL"></a>下载MySQL</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://dev.MySQL.com/get/Downloads/MySQL-5.7/mysql-5.7.11-Linux-glibc2.5-x86_64.tar.gz</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-gold-cdn.xitu.io/2018/11/25/167490b6cb910210?w=790&amp;h=124&amp;f=png&amp;s=2227" alt="download"></p>
+<h2 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf mysql-5.7.11-Linux-glibc2.5-x86_64.tar.gz</span><br></pre></td></tr></table></figure>
+<h2 id="复制到mysql目录"><a href="#复制到mysql目录" class="headerlink" title="复制到mysql目录"></a>复制到mysql目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -r mysql-5.7.11-linux-glibc2.5-x86_64/ /usr/local/mysql</span><br></pre></td></tr></table></figure>
+<h2 id="添加用户组"><a href="#添加用户组" class="headerlink" title="添加用户组"></a>添加用户组</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groupadd mysql</span><br></pre></td></tr></table></figure>
+<h2 id="添加用户mysql到用户组mysql"><a href="#添加用户mysql到用户组mysql" class="headerlink" title="添加用户mysql到用户组mysql"></a>添加用户mysql到用户组mysql</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -g mysql mysql</span><br></pre></td></tr></table></figure>
+<h2 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h2><h3 id="进入mysql目录"><a href="#进入mysql目录" class="headerlink" title="进入mysql目录"></a>进入mysql目录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/mysql/</span><br></pre></td></tr></table></figure>
+<h3 id="创建文件，存放数据库数据"><a href="#创建文件，存放数据库数据" class="headerlink" title="创建文件，存放数据库数据"></a>创建文件，存放数据库数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir data</span><br></pre></td></tr></table></figure>
+<h3 id="修改目录权限"><a href="#修改目录权限" class="headerlink" title="修改目录权限"></a>修改目录权限</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R mysql:mysql ./</span><br></pre></td></tr></table></figure>
+<h3 id="初始化数据库"><a href="#初始化数据库" class="headerlink" title="初始化数据库"></a>初始化数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/mysql_install_db --user=mysql --basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data/</span><br></pre></td></tr></table></figure>
+<h3 id="复制启动文件-选择y"><a href="#复制启动文件-选择y" class="headerlink" title="复制启动文件(选择y)"></a>复制启动文件(选择y)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -a ./support-files/my-default.cnf /etc/my.cnf</span><br></pre></td></tr></table></figure>
+<h3 id="将mysql的配置文件拷贝到-etc"><a href="#将mysql的配置文件拷贝到-etc" class="headerlink" title="将mysql的配置文件拷贝到/etc"></a>将mysql的配置文件拷贝到/etc</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -a ./support-files/mysql.server /etc/init.d/mysqld</span><br></pre></td></tr></table></figure>
+<h2 id="修改my-cnf脚本"><a href="#修改my-cnf脚本" class="headerlink" title="修改my.cnf脚本"></a>修改my.cnf脚本</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/my.cnf</span><br></pre></td></tr></table></figure>
+<p>进入编辑模式之后，对文件进行编辑，按<code>i</code>就是编辑<br><img src="https://user-gold-cdn.xitu.io/2018/11/25/167490b6cbdc5446?w=585&amp;h=458&amp;f=png&amp;s=11556" alt="my.cnf"></p>
+<p>添加内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">basedir = /usr/local/mysql</span><br><span class="line">datadir = /usr/local/mysql/data</span><br><span class="line">port = 3306</span><br><span class="line">socket = /tmp/mysql.sock</span><br><span class="line">character-set-server = utf8</span><br></pre></td></tr></table></figure></p>
+<p>修改完成之后，按<code>ESC</code>键退出编辑模式，按<code>Shift+Q</code>进行操作，当出现冒号时，输入<code>wq</code>保存修改内容。<br><img src="https://user-gold-cdn.xitu.io/2018/11/25/167490b715cd3d92?w=427&amp;h=40&amp;f=png&amp;s=1062" alt="保存"></p>
+<blockquote>
+<p>q：退出<br>wq：修改后保存退出<br>q！：强制退出，不保存修改的内容</p>
+</blockquote>
+<h2 id="创建In"><a href="#创建In" class="headerlink" title="创建In"></a>创建In</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /usr/local/mysql/bin/mysql /usr/bin</span><br></pre></td></tr></table></figure>
+<h2 id="启动mysql"><a href="#启动mysql" class="headerlink" title="启动mysql"></a>启动mysql</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld start</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-gold-cdn.xitu.io/2018/11/25/167490b7160df5b8?w=779&amp;h=36&amp;f=png&amp;s=2289" alt="error"><br>如果出现这样的情况,</p>
+<h3 id="查看SELinux状态"><a href="#查看SELinux状态" class="headerlink" title="查看SELinux状态"></a>查看SELinux状态</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getenforce</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-gold-cdn.xitu.io/2018/11/25/167490b71a421532?w=258&amp;h=37&amp;f=png&amp;s=974" alt="1"><br>发现是Enforcing ,修改配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setenforce 0</span><br></pre></td></tr></table></figure>
+<h3 id="也可能你之前安装过卸载重装，进程还存在，杀死进程即可"><a href="#也可能你之前安装过卸载重装，进程还存在，杀死进程即可" class="headerlink" title="也可能你之前安装过卸载重装，进程还存在，杀死进程即可"></a>也可能你之前安装过卸载重装，进程还存在，杀死进程即可</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef|grep mysql</span><br></pre></td></tr></table></figure>
+<p>如果查到进程<br><img src="https://user-gold-cdn.xitu.io/2018/11/25/167491cfb9456284?w=1101&amp;h=168&amp;f=png&amp;s=9072" alt="进程"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -9 进程</span><br></pre></td></tr></table></figure></p>
+<p>重新启动<br><img src="https://user-gold-cdn.xitu.io/2018/11/25/167490b76d5bbdd1?w=589&amp;h=86&amp;f=png&amp;s=1476" alt="success"></p>
+<h1 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h1><h2 id="初始化密码"><a href="#初始化密码" class="headerlink" title="初始化密码"></a>初始化密码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /root/.mysql_secret</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-gold-cdn.xitu.io/2018/11/25/167490b7a0f3381f?w=585&amp;h=458&amp;f=png&amp;s=11556" alt="初始密码"></p>
+<h2 id="登录，密码直接使用上面的初始密码即可"><a href="#登录，密码直接使用上面的初始密码即可" class="headerlink" title="登录，密码直接使用上面的初始密码即可"></a>登录，密码直接使用上面的初始密码即可</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
+<h2 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter user root@localhost identified by &apos;新密码&apos;;</span><br></pre></td></tr></table></figure>
+<h2 id="刷新，此步骤必须"><a href="#刷新，此步骤必须" class="headerlink" title="刷新，此步骤必须"></a>刷新，此步骤必须</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+<h2 id="退出"><a href="#退出" class="headerlink" title="退出"></a>退出</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exit</span><br></pre></td></tr></table></figure>
+<h2 id="重新登录，发现需要使用新密码才能登录，说明修改密码成功了"><a href="#重新登录，发现需要使用新密码才能登录，说明修改密码成功了" class="headerlink" title="重新登录，发现需要使用新密码才能登录，说明修改密码成功了"></a>重新登录，发现需要使用新密码才能登录，说明修改密码成功了</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure>
+<h2 id="查看一下数据库"><a href="#查看一下数据库" class="headerlink" title="查看一下数据库"></a>查看一下数据库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show databases;</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-gold-cdn.xitu.io/2018/11/25/167490b7b43cf52c?w=214&amp;h=165&amp;f=png&amp;s=1698" alt="databases"></p>
+<h2 id="连接远程数据库"><a href="#连接远程数据库" class="headerlink" title="连接远程数据库"></a>连接远程数据库</h2><h3 id="使用mysql"><a href="#使用mysql" class="headerlink" title="使用mysql"></a>使用mysql</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br></pre></td></tr></table></figure>
+<h3 id="查看一下user表"><a href="#查看一下user表" class="headerlink" title="查看一下user表"></a>查看一下user表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select user,host from user;</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-gold-cdn.xitu.io/2018/11/25/167490b7b50cbbfa?w=289&amp;h=128&amp;f=png&amp;s=1662" alt="user"></p>
+<h3 id="修改user表"><a href="#修改user表" class="headerlink" title="修改user表"></a>修改user表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update user set host = &apos;%&apos; where user = &apos;root&apos;;</span><br></pre></td></tr></table></figure>
+<h3 id="查看一下user表，发现已修改"><a href="#查看一下user表，发现已修改" class="headerlink" title="查看一下user表，发现已修改"></a>查看一下user表，发现已修改</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select user,host from user;</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-gold-cdn.xitu.io/2018/11/25/167490b7b8531b59?w=268&amp;h=136&amp;f=png&amp;s=1576" alt="user"></p>
+<h3 id="刷新，此步骤必须，不然还是无法进行远程登录"><a href="#刷新，此步骤必须，不然还是无法进行远程登录" class="headerlink" title="刷新，此步骤必须，不然还是无法进行远程登录"></a>刷新，此步骤必须，不然还是无法进行远程登录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+<p>`### 连接一下<br><img src="https://user-gold-cdn.xitu.io/2018/11/25/167490b7ba7ee2d2?w=486&amp;h=548&amp;f=png&amp;s=37416" alt="mysql"><br>注：正常来说已经可以远程连接MySQL了，因为我连接的是别人公司内网的机子，所以用外网是连接不上的。<br><img src="https://user-gold-cdn.xitu.io/2018/11/25/167490b7ba9d8f5f?w=486&amp;h=548&amp;f=png&amp;s=34878" alt="success"><br>正常来说是这样的，这是我自己公网上的云服务器。<br>PS：因为初次安装MySQL，安装过程中遇到了很多问题，不断的卸载安装，如果步骤不对或者遇到问题，欢迎指出或咨询我。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/11/27/2018-11-27-通过Xshell6跳板机在Linux上安装MySQL5.7/">通过Xshell6跳板机在Linux上安装MySQL5.7</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Null指针</a></p>
+        <p><span>发布时间:</span>2018-11-27, 14:24:00</p>
+        <p><span>最后更新:</span>2018-11-27, 14:29:10</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/11/27/2018-11-27-通过Xshell6跳板机在Linux上安装MySQL5.7/" title="通过Xshell6跳板机在Linux上安装MySQL5.7">http://yoursite.com/2018/11/27/2018-11-27-通过Xshell6跳板机在Linux上安装MySQL5.7/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/11/27/2018-11-27-通过Xshell6跳板机在Linux上安装MySQL5.7/　　作者: Null指针" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/11/16/2018-11-16-Web安全-XSS/">
+                    Web安全-XSS
+                </a>
+            </div>
+        
+    </nav>
+
+  
+  
+	
+	    <!--打赏-->
+<div class="reward">
+	<div class="reward-button">赏 <span class="reward-code">
+	  <span class="alipay-code"> <img class="alipay-img wdp-appear" src="/img/Alipay.jpg"><b>支付宝打赏</b> </span> 
+	  <span class="wechat-code"> <img class="wechat-img wdp-appear" src="/img/WeChatpay.jpg"><b>微信打赏</b> </span> 
+ 	</span></div>
+	<p class="reward-notice">如果文章对你有帮助，欢迎点击上方按钮打赏作者</p>
+</div>
+<!--打赏-->
+	
+
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装MySQL"><span class="toc-number">2.</span> <span class="toc-text">安装MySQL</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载MySQL"><span class="toc-number">2.1.</span> <span class="toc-text">下载MySQL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解压"><span class="toc-number">2.2.</span> <span class="toc-text">解压</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复制到mysql目录"><span class="toc-number">2.3.</span> <span class="toc-text">复制到mysql目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加用户组"><span class="toc-number">2.4.</span> <span class="toc-text">添加用户组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加用户mysql到用户组mysql"><span class="toc-number">2.5.</span> <span class="toc-text">添加用户mysql到用户组mysql</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开始安装"><span class="toc-number">2.6.</span> <span class="toc-text">开始安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#进入mysql目录"><span class="toc-number">2.6.1.</span> <span class="toc-text">进入mysql目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建文件，存放数据库数据"><span class="toc-number">2.6.2.</span> <span class="toc-text">创建文件，存放数据库数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改目录权限"><span class="toc-number">2.6.3.</span> <span class="toc-text">修改目录权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化数据库"><span class="toc-number">2.6.4.</span> <span class="toc-text">初始化数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#复制启动文件-选择y"><span class="toc-number">2.6.5.</span> <span class="toc-text">复制启动文件(选择y)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将mysql的配置文件拷贝到-etc"><span class="toc-number">2.6.6.</span> <span class="toc-text">将mysql的配置文件拷贝到/etc</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改my-cnf脚本"><span class="toc-number">2.7.</span> <span class="toc-text">修改my.cnf脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建In"><span class="toc-number">2.8.</span> <span class="toc-text">创建In</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动mysql"><span class="toc-number">2.9.</span> <span class="toc-text">启动mysql</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看SELinux状态"><span class="toc-number">2.9.1.</span> <span class="toc-text">查看SELinux状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#也可能你之前安装过卸载重装，进程还存在，杀死进程即可"><span class="toc-number">2.9.2.</span> <span class="toc-text">也可能你之前安装过卸载重装，进程还存在，杀死进程即可</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#连接数据库"><span class="toc-number">3.</span> <span class="toc-text">连接数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化密码"><span class="toc-number">3.1.</span> <span class="toc-text">初始化密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#登录，密码直接使用上面的初始密码即可"><span class="toc-number">3.2.</span> <span class="toc-text">登录，密码直接使用上面的初始密码即可</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改密码"><span class="toc-number">3.3.</span> <span class="toc-text">修改密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#刷新，此步骤必须"><span class="toc-number">3.4.</span> <span class="toc-text">刷新，此步骤必须</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#退出"><span class="toc-number">3.5.</span> <span class="toc-text">退出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重新登录，发现需要使用新密码才能登录，说明修改密码成功了"><span class="toc-number">3.6.</span> <span class="toc-text">重新登录，发现需要使用新密码才能登录，说明修改密码成功了</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看一下数据库"><span class="toc-number">3.7.</span> <span class="toc-text">查看一下数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#连接远程数据库"><span class="toc-number">3.8.</span> <span class="toc-text">连接远程数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用mysql"><span class="toc-number">3.8.1.</span> <span class="toc-text">使用mysql</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看一下user表"><span class="toc-number">3.8.2.</span> <span class="toc-text">查看一下user表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改user表"><span class="toc-number">3.8.3.</span> <span class="toc-text">修改user表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看一下user表，发现已修改"><span class="toc-number">3.8.4.</span> <span class="toc-text">查看一下user表，发现已修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#刷新，此步骤必须，不然还是无法进行远程登录"><span class="toc-number">3.8.5.</span> <span class="toc-text">刷新，此步骤必须，不然还是无法进行远程登录</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"通过Xshell6跳板机在Linux上安装MySQL5.7　| Null指针的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+        <!-- ������City�氲װ���� -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80MDY2OC8xNzE5NQ==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> Ϊ����ʹ�����������۹����뼤��JavaScript</noscript>
+</div>
+<!-- City�氲װ��������� -->
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/11/16/2018-11-16-Web安全-XSS/" title="下一篇: Web安全-XSS">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/11/27/2018-11-27-通过Xshell6跳板机在Linux上安装MySQL5.7/">通过Xshell6跳板机在Linux上安装MySQL5.7</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/16/2018-11-16-Web安全-XSS/">Web安全-XSS</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/07/2018-11-07-微信小程序-入门/">微信小程序-入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/05/2018-11-05-Hexo主题更改以及小功能的添加/">Hexo主题更改以及小功能的添加</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/01/2018-11-01-hexo+github搭建博客/">hexo+github搭建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/31/2018-10-31-String，StringBuilder，StringBuffer的区别/">String，StringBuilder，StringBuffer的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/27/2018-10-27-学习笔记-EDAS介绍/">学习笔记-EDAS介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/10/2018-10-10-Method breakpoints may dramatically slow down debugging情况解决/">Method breakpoints may dramatically slow down debugging情况解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/2018-10-04-MYSQL limit,offset 区别/">MYSQL limit,offset 区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/2018-10-01-freemarker判断对象是否为空/">freemarker判断对象是否为空</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/28/2018-09-28-IDEA搭建和部署Maven项目/">IDEA搭建和部署Maven项目</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/22/2018-09-22-上传文件至GitHub/">上传文件至GitHub</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/15/2018-09-15-在Windows上安装Maven/">在Windows上安装Maven</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/2018-08-31-学习笔记——Spring MVC接收前端入参数据的方式/">学习笔记——Spring MVC接收前端入参数据的方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/2018-08-15-打开Navicat for mysql，显示Missing required libmysql_e.dll, 126/">打开Navicat for mysql，显示Missing required libmysql_e.dll, 126</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/04/2018-08-04-学习笔记——设计模式：MVC模式/">学习笔记——设计模式：MVC模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/30/2018-07-30-学习笔记——MyBatis入门/">学习笔记——MyBatis入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/14/2018-07-14-学习笔记——Java技术体系/">学习笔记——Java技术体系</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/02/2018-07-02-为什么Java中1000==1000为false而100==100为true/">为什么Java中1000==1000为false而100==100为true</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/25/2018-06-25-学习笔记——浏览器对象模型(Window)/">学习笔记——浏览器对象模型（Window）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/21/2018-06-21-Git安装/">Git安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/01/2018-03-01-MarkDown/">MarkDown</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/03/2017-09-03-hello-world/">Hello hexo</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+
+</aricle></div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2018 Null指针
+            </div>
+            <div class="footer-right">
+                
+            </div>
+        </div>
+        
+        <div>
+					<span id="busuanzi_container_site_uv" style="margin-left: -100px;">
+					  	您是第<span id="busuanzi_value_site_uv"></span>位访客 | 
+					</span>
+					
+	        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	        <span id="busuanzi_container_site_pv">
+					    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+					</span>
+				</div>
+				
+				
+				<div>
+        <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+				<script>
+				    var now = new Date(); 
+				    function createtime() { 
+				        var grt= new Date("07/01/2018 12:49:00");//此处修改你的建站时间或者网站上线时间 
+				        now.setTime(now.getTime()+250); 
+				        days = (now - grt ) / 1000 / 60 / 60 / 24; 
+				        dnum = Math.floor(days); 
+				        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); 
+				        hnum = Math.floor(hours); 
+				        if(String(hnum).length ==1 ){
+				        	hnum = "0" + hnum;
+				        } 
+				        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+				        mnum = Math.floor(minutes); 
+				        if(String(mnum).length ==1 ){
+				        	mnum = "0" + mnum;
+				        } 
+				        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+				        snum = Math.round(seconds); 
+				        if(String(snum).length ==1 ){
+				        	snum = "0" + snum;
+				        } 
+				        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+				        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+				    } 
+						setInterval("createtime()",250);
+				</script>
+				</div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+    <script>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+                clearTimeout(titleTime);
+            }
+            else {
+                document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+                titleTime = setTimeout(function() {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        })
+    </script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script type="text/javascript" src="/resources/float.js"></script>
+<script type="text/javascript" src="/resources/love.js"></script>
+<script type="text/javascript" color="0,104,183" opacity="1" zindex="-1" count="50" src="/resources/particle.js"></script>
+<script type="text/javascript" src="/resources/typewriter.js"></script>
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"live2d-widget-model-miku"},"display":{"position":"right","margin":10,"width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

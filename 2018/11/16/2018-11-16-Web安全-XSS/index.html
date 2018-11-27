@@ -15,13 +15,13 @@
 
 
 
-<meta name="description" content="XSS的定义攻击者利用网站漏洞把恶意的脚本代码（通常包括HTML代码和JavaScript脚本）注入到网页中，当其他用户浏览这些网页时，就会执行其中的恶意代码，对受害用户可能采取cookie窃取、会话劫持、钓鱼欺骗。 XSS的攻击方式反射型发出请求时，XSS代码出现在URL中，作为输入提交到服务器端，服务器解析后响应，XSS代码随响应内容一起传回浏览器，最后浏览器解析执行XSS代码。这个过程像一次">
+<meta name="description" content="XSS的定义攻击者利用网站漏洞把恶意的脚本代码（通常包括HTML代码和JavaScript脚本）注入到网页中，当其他用户浏览这些网页时，就会执行其中的恶意代码，对受害用户可能采取cookie窃取、会话劫持、钓鱼欺骗。">
 <meta name="keywords" content="XSS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Web安全-XSS">
 <meta property="og:url" content="http://yoursite.com/2018/11/16/2018-11-16-Web安全-XSS/index.html">
 <meta property="og:site_name" content="Null指针的博客">
-<meta property="og:description" content="XSS的定义攻击者利用网站漏洞把恶意的脚本代码（通常包括HTML代码和JavaScript脚本）注入到网页中，当其他用户浏览这些网页时，就会执行其中的恶意代码，对受害用户可能采取cookie窃取、会话劫持、钓鱼欺骗。 XSS的攻击方式反射型发出请求时，XSS代码出现在URL中，作为输入提交到服务器端，服务器解析后响应，XSS代码随响应内容一起传回浏览器，最后浏览器解析执行XSS代码。这个过程像一次">
+<meta property="og:description" content="XSS的定义攻击者利用网站漏洞把恶意的脚本代码（通常包括HTML代码和JavaScript脚本）注入到网页中，当其他用户浏览这些网页时，就会执行其中的恶意代码，对受害用户可能采取cookie窃取、会话劫持、钓鱼欺骗。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/16/1671bc71bfc26f5a?w=1168&h=726&f=png&s=97782">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/16/1671bd6fef2b4970?w=932&h=860&f=png&s=161997">
@@ -48,10 +48,10 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-9b9a0c98da967660.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-b310acd9d90854c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-4ea3b6f128671e5e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-11-27T03:53:28.290Z">
+<meta property="og:updated_time" content="2018-11-27T06:29:25.147Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Web安全-XSS">
-<meta name="twitter:description" content="XSS的定义攻击者利用网站漏洞把恶意的脚本代码（通常包括HTML代码和JavaScript脚本）注入到网页中，当其他用户浏览这些网页时，就会执行其中的恶意代码，对受害用户可能采取cookie窃取、会话劫持、钓鱼欺骗。 XSS的攻击方式反射型发出请求时，XSS代码出现在URL中，作为输入提交到服务器端，服务器解析后响应，XSS代码随响应内容一起传回浏览器，最后浏览器解析执行XSS代码。这个过程像一次">
+<meta name="twitter:description" content="XSS的定义攻击者利用网站漏洞把恶意的脚本代码（通常包括HTML代码和JavaScript脚本）注入到网页中，当其他用户浏览这些网页时，就会执行其中的恶意代码，对受害用户可能采取cookie窃取、会话劫持、钓鱼欺骗。">
 <meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2018/11/16/1671bc71bfc26f5a?w=1168&h=726&f=png&s=97782">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -224,7 +224,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/EDAS/">EDAS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MYSQL/">MYSQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MarkDown/">MarkDown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/">Maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-MVC/">Spring MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XSS/">XSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/freemarker/">freemarker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分布式/">分布式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信/">微信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/EDAS/">EDAS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MYSQL/">MYSQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MarkDown/">MarkDown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/">Maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-MVC/">Spring MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XSS/">XSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XShell/">XShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/freemarker/">freemarker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分布式/">分布式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信/">微信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
                     </div>
                 </section>
                 
@@ -370,6 +370,7 @@
       
           
         <h1 id="XSS的定义"><a href="#XSS的定义" class="headerlink" title="XSS的定义"></a>XSS的定义</h1><p>攻击者利用网站漏洞把恶意的脚本代码（通常包括HTML代码和JavaScript脚本）注入到网页中，当其他用户浏览这些网页时，就会执行其中的恶意代码，对受害用户可能采取cookie窃取、会话劫持、钓鱼欺骗。</p>
+<a id="more"></a>
 <h1 id="XSS的攻击方式"><a href="#XSS的攻击方式" class="headerlink" title="XSS的攻击方式"></a>XSS的攻击方式</h1><h2 id="反射型"><a href="#反射型" class="headerlink" title="反射型"></a>反射型</h2><p>发出请求时，XSS代码出现在URL中，作为输入提交到服务器端，服务器解析后响应，XSS代码随响应内容一起传回浏览器，最后浏览器解析执行XSS代码。这个过程像一次反射，故叫反射XSS。</p>
 <h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><p>本例使用nodejs构建项目，演示反射型XSS攻击。</p>
 <h4 id="创建目录"><a href="#创建目录" class="headerlink" title="创建目录"></a>创建目录</h4><p>首先，我们先创建一个目录<code>xssfilter</code>并且进入该目录</p>
@@ -505,7 +506,7 @@
         <p><span>本文标题:</span><a href="/2018/11/16/2018-11-16-Web安全-XSS/">Web安全-XSS</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Null指针</a></p>
         <p><span>发布时间:</span>2018-11-16, 10:48:32</p>
-        <p><span>最后更新:</span>2018-11-27, 11:53:28</p>
+        <p><span>最后更新:</span>2018-11-27, 14:29:25</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/11/16/2018-11-16-Web安全-XSS/" title="Web安全-XSS">http://yoursite.com/2018/11/16/2018-11-16-Web安全-XSS/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/11/16/2018-11-16-Web安全-XSS/　　作者: Null指针" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -519,6 +520,12 @@
 
 
     <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2018/11/27/2018-11-27-通过Xshell6跳板机在Linux上安装MySQL5.7/">
+                    通过Xshell6跳板机在Linux上安装MySQL5.7
+                </a>
+            </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
@@ -622,7 +629,9 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2018/11/27/2018-11-27-通过Xshell6跳板机在Linux上安装MySQL5.7/" title="上一篇: 通过Xshell6跳板机在Linux上安装MySQL5.7">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
@@ -634,7 +643,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/11/16/2018-11-16-Web安全-XSS/">Web安全-XSS</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/07/2018-11-07-微信小程序-入门/">微信小程序-入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/05/2018-11-05-Hexo主题更改以及小功能的添加/">Hexo主题更改以及小功能的添加</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/01/2018-11-01-hexo+github搭建博客/">hexo+github搭建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/31/2018-10-31-String，StringBuilder，StringBuffer的区别/">String，StringBuilder，StringBuffer的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/27/2018-10-27-学习笔记-EDAS介绍/">学习笔记-EDAS介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/10/2018-10-10-Method breakpoints may dramatically slow down debugging情况解决/">Method breakpoints may dramatically slow down debugging情况解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/2018-10-04-MYSQL limit,offset 区别/">MYSQL limit,offset 区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/2018-10-01-freemarker判断对象是否为空/">freemarker判断对象是否为空</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/28/2018-09-28-IDEA搭建和部署Maven项目/">IDEA搭建和部署Maven项目</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/22/2018-09-22-上传文件至GitHub/">上传文件至GitHub</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/15/2018-09-15-在Windows上安装Maven/">在Windows上安装Maven</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/2018-08-31-学习笔记——Spring MVC接收前端入参数据的方式/">学习笔记——Spring MVC接收前端入参数据的方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/2018-08-15-打开Navicat for mysql，显示Missing required libmysql_e.dll, 126/">打开Navicat for mysql，显示Missing required libmysql_e.dll, 126</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/04/2018-08-04-学习笔记——设计模式：MVC模式/">学习笔记——设计模式：MVC模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/30/2018-07-30-学习笔记——MyBatis入门/">学习笔记——MyBatis入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/14/2018-07-14-学习笔记——Java技术体系/">学习笔记——Java技术体系</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/02/2018-07-02-为什么Java中1000==1000为false而100==100为true/">为什么Java中1000==1000为false而100==100为true</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/25/2018-06-25-学习笔记——浏览器对象模型(Window)/">学习笔记——浏览器对象模型（Window）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/21/2018-06-21-Git安装/">Git安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/01/2018-03-01-MarkDown/">MarkDown</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/03/2017-09-03-hello-world/">Hello hexo</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/11/27/2018-11-27-通过Xshell6跳板机在Linux上安装MySQL5.7/">通过Xshell6跳板机在Linux上安装MySQL5.7</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/16/2018-11-16-Web安全-XSS/">Web安全-XSS</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/07/2018-11-07-微信小程序-入门/">微信小程序-入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/05/2018-11-05-Hexo主题更改以及小功能的添加/">Hexo主题更改以及小功能的添加</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/01/2018-11-01-hexo+github搭建博客/">hexo+github搭建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/31/2018-10-31-String，StringBuilder，StringBuffer的区别/">String，StringBuilder，StringBuffer的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/27/2018-10-27-学习笔记-EDAS介绍/">学习笔记-EDAS介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/10/2018-10-10-Method breakpoints may dramatically slow down debugging情况解决/">Method breakpoints may dramatically slow down debugging情况解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/2018-10-04-MYSQL limit,offset 区别/">MYSQL limit,offset 区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/2018-10-01-freemarker判断对象是否为空/">freemarker判断对象是否为空</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/28/2018-09-28-IDEA搭建和部署Maven项目/">IDEA搭建和部署Maven项目</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/22/2018-09-22-上传文件至GitHub/">上传文件至GitHub</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/15/2018-09-15-在Windows上安装Maven/">在Windows上安装Maven</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/2018-08-31-学习笔记——Spring MVC接收前端入参数据的方式/">学习笔记——Spring MVC接收前端入参数据的方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/2018-08-15-打开Navicat for mysql，显示Missing required libmysql_e.dll, 126/">打开Navicat for mysql，显示Missing required libmysql_e.dll, 126</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/04/2018-08-04-学习笔记——设计模式：MVC模式/">学习笔记——设计模式：MVC模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/30/2018-07-30-学习笔记——MyBatis入门/">学习笔记——MyBatis入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/14/2018-07-14-学习笔记——Java技术体系/">学习笔记——Java技术体系</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/02/2018-07-02-为什么Java中1000==1000为false而100==100为true/">为什么Java中1000==1000为false而100==100为true</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/25/2018-06-25-学习笔记——浏览器对象模型(Window)/">学习笔记——浏览器对象模型（Window）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/21/2018-06-21-Git安装/">Git安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/01/2018-03-01-MarkDown/">MarkDown</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/03/2017-09-03-hello-world/">Hello hexo</a></li></ul>
 
 
 

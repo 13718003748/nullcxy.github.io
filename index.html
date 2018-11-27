@@ -201,7 +201,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/EDAS/">EDAS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MYSQL/">MYSQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MarkDown/">MarkDown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/">Maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-MVC/">Spring MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XSS/">XSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/freemarker/">freemarker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分布式/">分布式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信/">微信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/EDAS/">EDAS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MYSQL/">MYSQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MarkDown/">MarkDown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/">Maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-MVC/">Spring MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XSS/">XSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XShell/">XShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/freemarker/">freemarker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分布式/">分布式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信/">微信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
                     </div>
                 </section>
                 
@@ -284,6 +284,97 @@
 </nav>
       <div class="body-wrap">
   
+    <aricle id="post-2018-11-27-通过Xshell6跳板机在Linux上安装MySQL5.7" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/11/27/2018-11-27-通过Xshell6跳板机在Linux上安装MySQL5.7/" class="article-date">
+      <time datetime="2018-11-27T06:24:00.000Z" itemprop="datePublished">2018-11-27</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/27/2018-11-27-通过Xshell6跳板机在Linux上安装MySQL5.7/">通过Xshell6跳板机在Linux上安装MySQL5.7</a>
+    </h1>
+  
+
+        
+        	<div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  博文字数： </span>
+        <span class="post-count">763字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">3分钟</span>
+      </span>
+    </span>
+</div>
+        
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>想在自己的服务器上创建数据库，这里我通过XShell远程连接公司内网机器。如果是自己的服务器，可以直接连接，输入用户名密码即可。</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/数据库/">数据库</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/XShell/">XShell</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2018/11/27/2018-11-27-通过Xshell6跳板机在Linux上安装MySQL5.7/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+  
+	
+
+
+
+
+
+
+
+
+
+
+</aricle>
+  
     <aricle id="post-2018-11-16-Web安全-XSS" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
@@ -333,132 +424,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="XSS的定义"><a href="#XSS的定义" class="headerlink" title="XSS的定义"></a>XSS的定义</h1><p>攻击者利用网站漏洞把恶意的脚本代码（通常包括HTML代码和JavaScript脚本）注入到网页中，当其他用户浏览这些网页时，就会执行其中的恶意代码，对受害用户可能采取cookie窃取、会话劫持、钓鱼欺骗。</p>
-<h1 id="XSS的攻击方式"><a href="#XSS的攻击方式" class="headerlink" title="XSS的攻击方式"></a>XSS的攻击方式</h1><h2 id="反射型"><a href="#反射型" class="headerlink" title="反射型"></a>反射型</h2><p>发出请求时，XSS代码出现在URL中，作为输入提交到服务器端，服务器解析后响应，XSS代码随响应内容一起传回浏览器，最后浏览器解析执行XSS代码。这个过程像一次反射，故叫反射XSS。</p>
-<h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><p>本例使用nodejs构建项目，演示反射型XSS攻击。</p>
-<h4 id="创建目录"><a href="#创建目录" class="headerlink" title="创建目录"></a>创建目录</h4><p>首先，我们先创建一个目录<code>xssfilter</code>并且进入该目录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir xssfilter</span><br><span class="line">$ cd xssfilter</span><br></pre></td></tr></table></figure>
-<p>在该目录继续创建一个目录<code>xss</code>，用于创建我们整个的XSS攻击的模拟服务。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir xss</span><br><span class="line">$ cd xss</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-gold-cdn.xitu.io/2018/11/16/1671bc71bfc26f5a?w=1168&amp;h=726&amp;f=png&amp;s=97782" alt=""></p>
-<h4 id="搭建web项目"><a href="#搭建web项目" class="headerlink" title="搭建web项目"></a>搭建web项目</h4><p>使用<a href="http://www.expressjs.com.cn/" target="_blank" rel="noopener">express</a>框架快速搭建整个的应用服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ express -e ./</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-gold-cdn.xitu.io/2018/11/16/1671bd6fef2b4970?w=932&amp;h=860&amp;f=png&amp;s=161997" alt=""></p>
-<h4 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h4><p>安装一下所有的依赖</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-gold-cdn.xitu.io/2018/11/16/1671bd4f845c2673?w=1192&amp;h=154&amp;f=png&amp;s=50631" alt=""></p>
-<h4 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h4><p>看一下目录结构</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/11/16/1671bd45e4489fbd?w=502&amp;h=546&amp;f=png&amp;s=62981" alt=""></p>
-<h4 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm start</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-gold-cdn.xitu.io/2018/11/16/1671bdb391ac4abe?w=846&amp;h=160&amp;f=png&amp;s=29163" alt=""></p>
-<h4 id="页面"><a href="#页面" class="headerlink" title="页面"></a>页面</h4><p>访问<code>localhost:3000</code>，看是否展示成功</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/11/16/1671bdbe5a573f6f?w=1424&amp;h=948&amp;f=png&amp;s=48442" alt=""></p>
-<h4 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h4><p>接下来我们就要开始反射型XSS的演示了</p>
-<h5 id="js"><a href="#js" class="headerlink" title="js"></a>js</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xss:req.query.xss</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-gold-cdn.xitu.io/2018/11/16/1671be0944c055a7?w=1156&amp;h=534&amp;f=png&amp;s=90977" alt=""></p>
-<p>我们在此设置一个查询的字段来获取用户在URL中写的search内容</p>
-<h5 id="视图层"><a href="#视图层" class="headerlink" title="视图层"></a>视图层</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;&quot;&gt;</span><br><span class="line">	&lt;%- xss%&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p>我们在视图层展示这个内容</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/11/16/1671be41d4139543?w=1106&amp;h=710&amp;f=png&amp;s=107717" alt=""></p>
-<p>接下来重启一下，查看一下带有值后展示的是啥样的</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/11/16/1671be792913ee12?w=808&amp;h=464&amp;f=png&amp;s=32760" alt=""></p>
-<p>由此，我们发现，值已经展示。</p>
-<p>接下来，我们开始一些有攻击性的脚本</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xss=&lt;img src=&quot;null&quot; onerror=&quot;alert(1);&quot;/&gt;</span><br></pre></td></tr></table></figure>
-<p>打开页面发现</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/11/16/1671bfc4126710a8?w=2082&amp;h=724&amp;f=png&amp;s=126378" alt=""></p>
-<p>这是因为Chrome会自动拦截XSS攻击</p>
-<p>我们设置下不让浏览器对XSS拦截</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res.set(&apos;X-XSS-Protection&apos;,0);</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-gold-cdn.xitu.io/2018/11/19/16729a66cd7c1df8?w=1158&amp;h=474&amp;f=png&amp;s=182637" alt=""></p>
-<p>重启服务，打开浏览我们会看到XSS攻击成功</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/11/19/16729a3438c0958f?w=1874&amp;h=564&amp;f=png&amp;s=59679" alt=""></p>
-<p>黑客会将一些攻击脚本在网页上通过引诱式点击植入广告、页面篡改等，典型的比如<iframe></iframe></p>
-<h2 id="存储型"><a href="#存储型" class="headerlink" title="存储型"></a>存储型</h2><p>存储型XSS与反射型XSS的差别仅在于，提交的代码会存储到服务器端（内存，数据库，文件系统等），下次调用的时候就不需要再提交XSS代码。</p>
-<p>存储型XSS只能读取缓存或者数据库了</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/11/19/16729bc93f1cf0de?w=1056&amp;h=476&amp;f=png&amp;s=177717" alt=""></p>
-<h1 id="XSS的防范措施"><a href="#XSS的防范措施" class="headerlink" title="XSS的防范措施"></a>XSS的防范措施</h1><h2 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h2><p>对用户输入的数据进行HTML Entity编码</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/11/16/1671a9f4285c2a7c?w=1222&amp;h=546&amp;f=png&amp;s=149565" alt="编码"></p>
-<h2 id="过滤"><a href="#过滤" class="headerlink" title="过滤"></a>过滤</h2><p>将用户输入的不安全的内容给过滤掉</p>
-<p>比如：</p>
-<p>移除用户上传的DOM属性，如onerror等</p>
-<p>移除用户上传的Style节点、Script节点、Iframe节点等</p>
-<h2 id="校正"><a href="#校正" class="headerlink" title="校正"></a>校正</h2><p>避免直接对HTML Entity解码</p>
-<p>使用DOM Parse转换，校正不配对的DOM标签</p>
-<h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><h2 id="构造接口"><a href="#构造接口" class="headerlink" title="构造接口"></a>构造接口</h2><p>通过构建Node服务和建立一个评论功能，实例演示XSS的攻击与预防。</p>
-<p>如何构建Node服务我就不重复赘述了，在之前介绍反射型XSS中已经讲过，这边我依然使用这个服务来实战。</p>
-<h3 id="设定个缓存"><a href="#设定个缓存" class="headerlink" title="设定个缓存"></a>设定个缓存</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var comments = &#123;&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="编写一个具有编码功能的函数"><a href="#编写一个具有编码功能的函数" class="headerlink" title="编写一个具有编码功能的函数"></a>编写一个具有编码功能的函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function html_encode(str)&#123;</span><br><span class="line">	var result = &quot;&quot;;</span><br><span class="line">	if(str.length==0)&#123;</span><br><span class="line">		return &quot;&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	result = str.replace(/&amp;/g,&quot;&amp;gt;&quot;);</span><br><span class="line">	result = result.replace(/&lt;/g,&quot;&amp;lt;&quot;);</span><br><span class="line">	result = result.replace(/&gt;/g,&quot;&amp;gt;&quot;);</span><br><span class="line">	result = result.replace(/\s/g,&quot;&amp;nbsp;&quot;);</span><br><span class="line">	result = result.replace(/\&apos;/g,&quot;&amp;#39;&quot;);</span><br><span class="line">	result = result.replace(/\&quot;/g,&quot;&amp;quot;&quot;);</span><br><span class="line">	result = result.replace(/\n/g,&quot;&lt;/br&gt;&quot;);</span><br><span class="line">	return result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="定义一个评论的接口"><a href="#定义一个评论的接口" class="headerlink" title="定义一个评论的接口"></a>定义一个评论的接口</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/comment&apos;, function(req, res, next) &#123;</span><br><span class="line">	comments.v = html_encode(req.query.comment);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="定义一个用户拉取评论的接口"><a href="#定义一个用户拉取评论的接口" class="headerlink" title="定义一个用户拉取评论的接口"></a>定义一个用户拉取评论的接口</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/getComment&apos;, function(req, res, next) &#123;</span><br><span class="line">	res.json(&#123;</span><br><span class="line">		comment:comments.v</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id=""><a href="#" class="headerlink" title=""></a><img src="https://user-gold-cdn.xitu.io/2018/11/22/1673a56e8bd2ec04?w=986&amp;h=1646&amp;f=png&amp;s=593059" alt=""></h3><h2 id="防范措施"><a href="#防范措施" class="headerlink" title="防范措施"></a>防范措施</h2><h3 id="ejs"><a href="#ejs" class="headerlink" title="ejs"></a>ejs</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;textarea name=&quot;name&quot; rows=&quot;8&quot; cols=&quot;80&quot; id=&quot;text&quot;&gt;</span><br><span class="line">	&lt;p&gt;sks&lt;img src=&quot;null&quot; alt=&quot;&quot; onerror=&quot;alert(1)&quot; /&gt;&lt;/p&gt;</span><br><span class="line">&lt;/textarea&gt;</span><br><span class="line"></span><br><span class="line">&lt;button type=&quot;button&quot; name=&quot;button&quot; id=&quot;btn&quot;&gt;评论&lt;/button&gt;</span><br><span class="line">&lt;button type=&quot;button&quot; name=&quot;button&quot; id=&quot;get&quot;&gt;获取评论&lt;/button&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-gold-cdn.xitu.io/2018/11/22/1673a55856275ccd?w=1194&amp;h=922&amp;f=png&amp;s=337494" alt=""></p>
-<p><code>&lt;textarea&gt;</code>用于用户输入区域</p>
-<p><code>&lt;button&gt;</code>用于提交评论和拉取评论信息</p>
-<p>通过这样，我们就实现了一个模拟的XSS攻击</p>
-<h3 id="js-1"><a href="#js-1" class="headerlink" title="js"></a>js</h3><h4 id="获取对象"><a href="#获取对象" class="headerlink" title="获取对象"></a>获取对象</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var btn = document.getElementById(&quot;btn&quot;);</span><br><span class="line">var get = document.getElementById(&quot;get&quot;);</span><br><span class="line">var txt = document.getElementById(&quot;text&quot;);</span><br></pre></td></tr></table></figure>
-<h4 id="添加评论点击事件"><a href="#添加评论点击事件" class="headerlink" title="添加评论点击事件"></a>添加评论点击事件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">btn.addEventListener(&quot;click&quot;,function()&#123;</span><br><span class="line">	......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="ajax请求"><a href="#ajax请求" class="headerlink" title="ajax请求"></a>ajax请求</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var xhr = new XMLHttpRequest();</span><br></pre></td></tr></table></figure>
-<h5 id="url"><a href="#url" class="headerlink" title="url"></a>url</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var url = &apos;/comment?comment=&apos;+txt.value;</span><br></pre></td></tr></table></figure>
-<p>因为是get请求</p>
-<h5 id="打开对象"><a href="#打开对象" class="headerlink" title="打开对象"></a>打开对象</h5><p>在客户端向服务端发送之前，首先打开对象，告诉对象是以<code>GET</code>方式打开</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xhr.open(&apos;GET&apos;,url,true);</span><br></pre></td></tr></table></figure>
-<h5 id="定义对象在客户端响应的方式"><a href="#定义对象在客户端响应的方式" class="headerlink" title="定义对象在客户端响应的方式"></a>定义对象在客户端响应的方式</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">xhr.onreadystatechange = function()&#123;</span><br><span class="line">    if(xhr.readyState==4)&#123;</span><br><span class="line">        if(xhr.status==200)&#123;</span><br><span class="line">        	console.log(xhr);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">        	console.log(&quot;error&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="发送"><a href="#发送" class="headerlink" title="发送"></a>发送</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xhr.send();</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-gold-cdn.xitu.io/2018/11/22/1673aa65afb6b993?w=1204&amp;h=1570&amp;f=png&amp;s=585038" alt=""></p>
-<h4 id="添加请求评论点击事件"><a href="#添加请求评论点击事件" class="headerlink" title="添加请求评论点击事件"></a>添加请求评论点击事件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">get.addEventListener(&quot;click&quot;,function()&#123;</span><br><span class="line">	......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="ajax请求-1"><a href="#ajax请求-1" class="headerlink" title="ajax请求"></a>ajax请求</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var xhr = new XMLHttpRequest();</span><br></pre></td></tr></table></figure>
-<h5 id="url-1"><a href="#url-1" class="headerlink" title="url"></a>url</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var url = &apos;/getComment&apos;;</span><br></pre></td></tr></table></figure>
-<p>因为是get请求</p>
-<h5 id="打开对象-1"><a href="#打开对象-1" class="headerlink" title="打开对象"></a>打开对象</h5><p>在客户端向服务端发送之前，首先打开对象，告诉对象是以<code>GET</code>方式打开</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xhr.open(&apos;GET&apos;,url,true);</span><br></pre></td></tr></table></figure>
-<h5 id="定义对象在客户端响应的方式-1"><a href="#定义对象在客户端响应的方式-1" class="headerlink" title="定义对象在客户端响应的方式"></a>定义对象在客户端响应的方式</h5><ul>
-<li><p>导入js</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&apos;/public/javascripts/encode.js&apos;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&apos;/public/javascripts/domParse.js&apos;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>自行去第三方库下载</p>
-</li>
-<li><p>定义一个函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var prase = function(str)&#123;</span><br><span class="line">	var results = &apos;&apos;;</span><br><span class="line">	try&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;catch(e)&#123;</span><br><span class="line">		//TODO handle the exception</span><br><span class="line">	&#125;finally&#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>解码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HTMLParse(he.unescape(str,&#123;strict:true&#125;),&#123;&#125;);</span><br></pre></td></tr></table></figure>
-<p><code>he</code>是<code>encode.js</code>提供的</p>
-<p><code>unescape()</code>对输入一种反转义的过程</p>
-<p><code>HTMLParse()</code>在反转义的基础上进行domParse，获得我们能正常使用的结果</p>
-</li>
-<li><p>配对校验</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">start:function(tag,attrs,unary)&#123;//tag:标签；attrs:将属性组成数组；unary:是否是单标签</span><br><span class="line">	results += &apos;&lt;&apos;+tag;</span><br><span class="line">	for(int i=0,len=attrs.length;i&lt;len;i++)&#123;</span><br><span class="line">		results += &quot; &quot;+attrs[i].name+&apos;=&quot;&apos;+attrs[i].escaped+&apos;&quot;&apos;;</span><br><span class="line">	&#125;</span><br><span class="line">	results += (unary?&quot;/&quot;;&quot;&quot;)+&quot;&gt;&quot;;</span><br><span class="line">	&#125;,</span><br><span class="line">end:function(tag)&#123;</span><br><span class="line">	results += &quot;&lt;/&quot;+tag+&quot;&gt;&quot;;</span><br><span class="line">&#125;,</span><br><span class="line">chars:function(text)&#123;</span><br><span class="line">	results += text;</span><br><span class="line">&#125;,</span><br><span class="line">comment:function(text)&#123;//注释</span><br><span class="line">	results += &quot;&lt;!--&quot;+text+&quot;--&gt;&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>查看一下完整代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">	var prase = function(str)&#123;</span><br><span class="line">	var results = &apos;&apos;;</span><br><span class="line">	try&#123;</span><br><span class="line">		HTMLParse(he.unescape(str,&#123;strict:true&#125;),&#123;</span><br><span class="line">			start:function(tag,attrs,unary)&#123;//tag:标签；attrs:将属性组成数组；unary:是否是单标签</span><br><span class="line">				results += &apos;&lt;&apos;+tag;</span><br><span class="line">				for(int i=0,len=attrs.length;i&lt;len;i++)&#123;</span><br><span class="line">					results += &quot; &quot;+attrs[i].name+&apos;=&quot;&apos;+attrs[i].escaped+&apos;&quot;&apos;;</span><br><span class="line">				&#125;</span><br><span class="line">				results += (unary?&quot;/&quot;;&quot;&quot;)+&quot;&gt;&quot;;</span><br><span class="line">			&#125;,</span><br><span class="line">			end:function(tag)&#123;</span><br><span class="line">            	results += &quot;&lt;/&quot;+tag+&quot;&gt;&quot;;</span><br><span class="line">            &#125;,</span><br><span class="line">            chars:function(text)&#123;</span><br><span class="line">            	results += text;</span><br><span class="line">            &#125;,</span><br><span class="line">            comment:function(text)&#123;//注释</span><br><span class="line">            	results += &quot;&lt;!--&quot;+text+&quot;--&gt;&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        return results;</span><br><span class="line">    &#125;catch(e)&#123;</span><br><span class="line">    	console.log(e);</span><br><span class="line">    &#125;finally&#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-gold-cdn.xitu.io/2018/11/22/1673aa7830042732?w=1764&amp;h=1642&amp;f=png&amp;s=646703" alt=""></p>
-</li>
-<li><p>定义对象客户端响应方式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">xhr.onreadystatechange = function()&#123;</span><br><span class="line">    if(xhr.readyState==4)&#123;</span><br><span class="line">        if(xhr.status==200)&#123;</span><br><span class="line">        	var com = prase(JSON.parse(xhr.response).comment);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">        	console.log(&quot;error&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h5 id="发送-1"><a href="#发送-1" class="headerlink" title="发送"></a>发送</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xhr.send();</span><br></pre></td></tr></table></figure>
-<h4 id="过滤、校正"><a href="#过滤、校正" class="headerlink" title="过滤、校正"></a>过滤、校正</h4><h5 id="把获取的com转换成DOM节点"><a href="#把获取的com转换成DOM节点" class="headerlink" title="把获取的com转换成DOM节点"></a>把获取的com转换成DOM节点</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var info = document.createElement(&apos;span&apos;);</span><br><span class="line">info.innerHTML(com);</span><br><span class="line">document.body.appendChild(info);</span><br></pre></td></tr></table></figure>
-<p>重启一下，打开浏览器</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/14481291-a82d8e777ea11e2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>点击评论，然后再点击获取评论，来模拟浏览器加载服务端评论内容的行为</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/14481291-54a6a3c8e9e9e213.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>看下怎么执行的</p>
-<p>这边有<code>p</code>标签、<code>sks</code>文本、<code>img</code>标签，在<code>img</code>标签里，有个<code>src</code>属性，为<font color="red">null</font>，看下控制台,报错：<code>Failed to load resource</code>，因此触发了<code>onerror</code>属性。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/14481291-74f3de677cfa7eb3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h5 id="引诱式攻击"><a href="#引诱式攻击" class="headerlink" title="引诱式攻击"></a>引诱式攻击</h5><p><img src="https://upload-images.jianshu.io/upload_images/14481291-acb0238af381d5d0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>点击评论，再点击获取评论</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/14481291-9b9a0c98da967660.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>点击<code>攻击我</code></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/14481291-b310acd9d90854c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>这就是引诱式攻击</p>
-<p>到此，我们发现，并没有屏蔽掉XSS攻击，那是因为我们并没有进行过滤</p>
-<h5 id="过滤-1"><a href="#过滤-1" class="headerlink" title="过滤"></a>过滤</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if(tag==&apos;script&apos;||tag==&apos;style&apos;||tag==&apos;link&apos;||tag==&apos;iframe&apos;||tag==&apos;frame&apos;)&#123;</span><br><span class="line">	return;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个就是去过滤这些标签</p>
-<p>把之前的代码删掉，因为这段代码就包含了那些含有XSS攻击的脚本，从而保证我们获取信息的安全性，避免XSS脚本执行的空间。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(int i=0,len=attrs.length;i&lt;len;i++)&#123;</span><br><span class="line">	results += &quot; &quot;+attrs[i].name+&apos;=&quot;&apos;+attrs[i].escaped+&apos;&quot;&apos;;  						</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>打开浏览器，重新操作，发现已经成功拦截了XSS攻击，看下控制台，我们发现<code>img</code>标签下的属性被自动过滤掉了。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/14481291-4ea3b6f128671e5e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-
+              <h1 id="XSS的定义"><a href="#XSS的定义" class="headerlink" title="XSS的定义"></a>XSS的定义</h1><p>攻击者利用网站漏洞把恶意的脚本代码（通常包括HTML代码和JavaScript脚本）注入到网页中，当其他用户浏览这些网页时，就会执行其中的恶意代码，对受害用户可能采取cookie窃取、会话劫持、钓鱼欺骗。</p>
+          
       
     </div>
     
@@ -475,6 +442,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/XSS/">XSS</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2018/11/16/2018-11-16-Web安全-XSS/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -1203,97 +1174,6 @@
       
         <p class="article-more-link">
           <a href="/2018/10/01/2018-10-01-freemarker判断对象是否为空/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-  
-	
-
-
-
-
-
-
-
-
-
-
-</aricle>
-  
-    <aricle id="post-2018-09-28-IDEA搭建和部署Maven项目" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/09/28/2018-09-28-IDEA搭建和部署Maven项目/" class="article-date">
-      <time datetime="2018-09-28T05:18:30.000Z" itemprop="datePublished">2018-09-28</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/28/2018-09-28-IDEA搭建和部署Maven项目/">IDEA搭建和部署Maven项目</a>
-    </h1>
-  
-
-        
-        	<div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  博文字数： </span>
-        <span class="post-count">293字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分钟</span>
-      </span>
-    </span>
-</div>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>创建Maven项目</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Java基础/">Java基础</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Maven/">Maven</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/09/28/2018-09-28-IDEA搭建和部署Maven项目/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
