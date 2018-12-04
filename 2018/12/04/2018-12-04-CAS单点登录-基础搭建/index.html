@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="Null指针">
+
+
+
+<meta name="description" content="手脚架代码下载代码下载官方提供了下载工具(需要FQ)">
+<meta name="keywords" content="SSO,CAS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CAS单点登录-基础搭建">
+<meta property="og:url" content="http://yoursite.com/2018/12/04/2018-12-04-CAS单点登录-基础搭建/index.html">
+<meta property="og:site_name" content="Null指针的博客">
+<meta property="og:description" content="手脚架代码下载代码下载官方提供了下载工具(需要FQ)">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-2471435db614c9cc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-eb50d90672a91b29.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-e93cfb9035c37022.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-2fb1b710855025d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-bef15fed3171475c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-c172f24a16a90e02.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-be1490d8f920f0e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-12-04T06:17:02.844Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CAS单点登录-基础搭建">
+<meta name="twitter:description" content="手脚架代码下载代码下载官方提供了下载工具(需要FQ)">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/14481291-2471435db614c9cc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Null指针的博客" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="img/head/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>CAS单点登录-基础搭建 | Null指针的博客</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Null指针</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Null指针</p>
+        
+
+        
+            <form id="search-form">
+	            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false">
+	            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class="no-result">No results found <i class="fa fa-spinner fa-pulse"></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/photos/">相册</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:1287530995@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/nullcxy" title="GitHub"></a>
+                            
+                                <a class="fa 简书" href="https://www.jianshu.com/u/5e0ee1ba74c6" title="简书"></a>
+                            
+                                <a class="fa QQ" href="tencent://message/?Menu=yes&uin=1287530995&Service=300&sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a595b1714f9d45" title="QQ"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CAS/">CAS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EDAS/">EDAS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MYSQL/">MYSQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MarkDown/">MarkDown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/">Maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/">MyBatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSO/">SSO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-MVC/">Spring MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XSS/">XSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XShell/">XShell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/freemarker/">freemarker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jdk/">jdk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分布式/">分布式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信/">微信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">知世故而不世故才是最善良的成熟</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Null指针</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Null指针</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Null指针</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/photos/">相册</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:1287530995@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/nullcxy" title="GitHub"></a>
+                            
+                                <a class="fa 简书" target="_blank" href="https://www.jianshu.com/u/5e0ee1ba74c6" title="简书"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="tencent://message/?Menu=yes&uin=1287530995&Service=300&sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a595b1714f9d45" title="QQ"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
+</nav>
+      <div class="body-wrap"><aricle id="post-2018-12-04-CAS单点登录-基础搭建" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/04/2018-12-04-CAS单点登录-基础搭建/" class="article-date">
+      <time datetime="2018-12-04T01:59:33.000Z" itemprop="datePublished">2018-12-04</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CAS单点登录-基础搭建
+    </h1>
+  
+
+        
+        	<div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  博文字数： </span>
+        <span class="post-count">1.6k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">8分钟</span>
+      </span>
+    </span>
+</div>
+        
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/CAS/">CAS</a><a class="article-category-link" href="/categories/CAS/SSO/">SSO</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CAS/">CAS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SSO/">SSO</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="手脚架代码下载"><a href="#手脚架代码下载" class="headerlink" title="手脚架代码下载"></a>手脚架代码下载</h1><h2 id="代码下载"><a href="#代码下载" class="headerlink" title="代码下载"></a>代码下载</h2><p>官方提供了<a href="https://casinitializr.herokuapp.com/" target="_blank" rel="noopener">下载工具</a>(需要FQ)</p>
+<a id="more"></a>
+<ol>
+<li>选择依赖，目前只要选择Tomcat即可</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/14481291-2471435db614c9cc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ol start="2">
+<li>填写项目信息</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/14481291-eb50d90672a91b29.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ol start="3">
+<li>点击Generate Project， 生成项目</li>
+</ol>
+<h1 id="项目调整"><a href="#项目调整" class="headerlink" title="项目调整"></a>项目调整</h1><h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><ol>
+<li>创建文件夹（sso）</li>
+<li>在sso文件夹里创建maven项目（sso-base）</li>
+<li>将下载下来的sso-server拷贝到sso</li>
+</ol>
+<h2 id="maven调整"><a href="#maven调整" class="headerlink" title="maven调整"></a>maven调整</h2><h3 id="parent-pom-xml"><a href="#parent-pom-xml" class="headerlink" title="parent pom.xml"></a>parent pom.xml</h3><p>sso-base作为主项目，这边关注点为<code>cas.version</code>，调整到5.1.3，并且把maven的仓库进行调整</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;</span><br><span class="line">         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;</span><br><span class="line">    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line"></span><br><span class="line">    &lt;groupId&gt;com.cxy.auth&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;sso-base&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</span><br><span class="line">    &lt;packaging&gt;pom&lt;/packaging&gt;</span><br><span class="line"></span><br><span class="line">    &lt;properties&gt;</span><br><span class="line">        &lt;java.version&gt;1.8&lt;/java.version&gt;</span><br><span class="line">        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;</span><br><span class="line">        &lt;project.reporting.outputEncoding&gt;UTF-8&lt;/project.reporting.outputEncoding&gt;</span><br><span class="line">        &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;</span><br><span class="line">        &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;</span><br><span class="line">        &lt;cas.version&gt;5.1.3&lt;/cas.version&gt;</span><br><span class="line">        &lt;springboot.version&gt;1.5.3.RELEASE&lt;/springboot.version&gt;</span><br><span class="line">    &lt;/properties&gt;</span><br><span class="line"></span><br><span class="line">    &lt;modules&gt;</span><br><span class="line">        &lt;module&gt;../sso-server&lt;/module&gt;</span><br><span class="line">    &lt;/modules&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--为了加快下载jar包速度，修改成国内的代理--&gt;</span><br><span class="line">    &lt;repositories&gt;</span><br><span class="line">        &lt;repository&gt;</span><br><span class="line">            &lt;releases&gt;</span><br><span class="line">                &lt;enabled&gt;true&lt;/enabled&gt;</span><br><span class="line">            &lt;/releases&gt;</span><br><span class="line">            &lt;id&gt;maven2-release&lt;/id&gt;</span><br><span class="line">            &lt;url&gt;http://uk.maven.org/maven2/&lt;/url&gt;</span><br><span class="line">        &lt;/repository&gt;</span><br><span class="line"></span><br><span class="line">        &lt;repository&gt;</span><br><span class="line">            &lt;snapshots&gt;</span><br><span class="line">                &lt;enabled&gt;true&lt;/enabled&gt;</span><br><span class="line">                &lt;!--快照版本库两个小时检查更新一遍--&gt;</span><br><span class="line">                &lt;updatePolicy&gt;interval:120&lt;/updatePolicy&gt;</span><br><span class="line">            &lt;/snapshots&gt;</span><br><span class="line">            &lt;id&gt;oss-snapshots&lt;/id&gt;</span><br><span class="line">            &lt;url&gt;http://repository.jboss.org/nexus/content/groups/public/&lt;/url&gt;</span><br><span class="line">        &lt;/repository&gt;</span><br><span class="line">    &lt;/repositories&gt;</span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="sso-server-pom-xml"><a href="#sso-server-pom-xml" class="headerlink" title="sso-server pom.xml"></a>sso-server pom.xml</h3><p>删掉多余的配置，该配置在父工程中都已配置，包括maven仓库，properties信息，profile。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">    xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;</span><br><span class="line">    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line"></span><br><span class="line">    &lt;parent&gt;</span><br><span class="line">        &lt;groupId&gt;com.cxy.auth&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;sso-base&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</span><br><span class="line">        &lt;relativePath&gt;../sso-base/pom.xml&lt;/relativePath&gt;</span><br><span class="line">    &lt;/parent&gt;</span><br><span class="line"></span><br><span class="line">    &lt;artifactId&gt;sso-server&lt;/artifactId&gt;</span><br><span class="line">    &lt;packaging&gt;war&lt;/packaging&gt;</span><br><span class="line"></span><br><span class="line">    &lt;name&gt;sso-server&lt;/name&gt;</span><br><span class="line">    &lt;description&gt;CAS认证服务，SSO(单点登录)&lt;/description&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.apereo.cas&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;cas-server-webapp-tomcat&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;$&#123;cas.version&#125;&lt;/version&gt;</span><br><span class="line">            &lt;type&gt;war&lt;/type&gt;</span><br><span class="line">            &lt;scope&gt;runtime&lt;/scope&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">    &lt;/dependencies&gt;</span><br><span class="line">    &lt;dependencyManagement&gt;</span><br><span class="line">        &lt;dependencies&gt;</span><br><span class="line">            &lt;dependency&gt;</span><br><span class="line">                &lt;groupId&gt;org.apereo.cas&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;cas-server-support-bom&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;$&#123;cas.version&#125;&lt;/version&gt;</span><br><span class="line">                &lt;type&gt;pom&lt;/type&gt;</span><br><span class="line">                &lt;scope&gt;import&lt;/scope&gt;</span><br><span class="line">            &lt;/dependency&gt;</span><br><span class="line">        &lt;/dependencies&gt;</span><br><span class="line">    &lt;/dependencyManagement&gt;</span><br><span class="line"></span><br><span class="line">    &lt;build&gt;</span><br><span class="line">        &lt;plugins&gt;</span><br><span class="line">            &lt;plugin&gt;</span><br><span class="line">                &lt;groupId&gt;com.rimerosolutions.maven.plugins&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;wrapper-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;0.0.5&lt;/version&gt;</span><br><span class="line">                &lt;configuration&gt;</span><br><span class="line">                    &lt;verifyDownload&gt;true&lt;/verifyDownload&gt;</span><br><span class="line">                    &lt;checksumAlgorithm&gt;MD5&lt;/checksumAlgorithm&gt;</span><br><span class="line">                &lt;/configuration&gt;</span><br><span class="line">            &lt;/plugin&gt;</span><br><span class="line">            &lt;plugin&gt;</span><br><span class="line">                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;$&#123;springboot.version&#125;&lt;/version&gt;</span><br><span class="line">                &lt;configuration&gt;</span><br><span class="line">                    &lt;mainClass&gt;org.springframework.boot.loader.WarLauncher&lt;/mainClass&gt;</span><br><span class="line">                    &lt;addResources&gt;true&lt;/addResources&gt;</span><br><span class="line">                &lt;/configuration&gt;</span><br><span class="line">            &lt;/plugin&gt;</span><br><span class="line">            &lt;plugin&gt;</span><br><span class="line">                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;maven-war-plugin&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;3.1.0&lt;/version&gt;</span><br><span class="line">                &lt;configuration&gt;</span><br><span class="line">                    &lt;warName&gt;cas&lt;/warName&gt;</span><br><span class="line">                    &lt;failOnMissingWebXml&gt;false&lt;/failOnMissingWebXml&gt;</span><br><span class="line">                    &lt;recompressZippedFiles&gt;false&lt;/recompressZippedFiles&gt;</span><br><span class="line">                    &lt;archive&gt;</span><br><span class="line">                        &lt;compress&gt;false&lt;/compress&gt;</span><br><span class="line">                        &lt;manifestFile&gt;$&#123;project.build.directory&#125;/war/work/org.apereo.cas/cas-server-webapp-tomcat/META-INF/MANIFEST.MF&lt;/manifestFile&gt;</span><br><span class="line">                    &lt;/archive&gt;</span><br><span class="line">                    &lt;overlays&gt;</span><br><span class="line">                        &lt;overlay&gt;</span><br><span class="line">                            &lt;groupId&gt;org.apereo.cas&lt;/groupId&gt;</span><br><span class="line">                            &lt;artifactId&gt;cas-server-webapp-tomcat&lt;/artifactId&gt;</span><br><span class="line">                        &lt;/overlay&gt;</span><br><span class="line">                    &lt;/overlays&gt;</span><br><span class="line">                &lt;/configuration&gt;</span><br><span class="line">            &lt;/plugin&gt;</span><br><span class="line">            &lt;plugin&gt;</span><br><span class="line">                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;3.3&lt;/version&gt;</span><br><span class="line">            &lt;/plugin&gt;</span><br><span class="line">        &lt;/plugins&gt;</span><br><span class="line">        &lt;finalName&gt;cas&lt;/finalName&gt;</span><br><span class="line">    &lt;/build&gt;</span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="log4j2-xml"><a href="#log4j2-xml" class="headerlink" title="log4j2.xml"></a>log4j2.xml</h3><p>把<code>etc/cas/config/log4j2.xml</code>放到项目的<code>src/main/resources</code>下，并且把内容<code>&lt;Property name=&quot;cas.log.dir&quot; &gt;.&lt;/Property&gt;</code> 调整成 <code>&lt;Property name=&quot;cas.log.dir&quot; &gt;logs&lt;/Property&gt;</code></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/14481291-e93cfb9035c37022.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="application-properties"><a href="#application-properties" class="headerlink" title="application.properties"></a>application.properties</h3><p>我们把依赖包下载的<code>cas-server-webapp-tomcat/5.1.3/cas-server-webapp-tomcat-5.1.3.war!/WEB-INF/classes/application.properties</code>拷贝到<code>src/main/resources</code>下并且进行调整</p>
+<p><strong>关注点：</strong></p>
+<blockquote>
+<p>server.ssl.enabled=false</p>
+</blockquote>
+<p>如果嫌麻烦，可以直接复制粘贴下面的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">##</span><br><span class="line"># CAS Server Context Configuration</span><br><span class="line">#</span><br><span class="line">server.context-path=/cas</span><br><span class="line">server.port=8443</span><br><span class="line"></span><br><span class="line">server.ssl.enabled=false</span><br><span class="line"></span><br><span class="line">server.max-http-header-size=2097152</span><br><span class="line">server.use-forward-headers=true</span><br><span class="line">server.connection-timeout=20000</span><br><span class="line">server.error.include-stacktrace=NEVER</span><br><span class="line"></span><br><span class="line">server.tomcat.max-http-post-size=2097152</span><br><span class="line">server.tomcat.basedir=build/tomcat</span><br><span class="line">server.tomcat.accesslog.enabled=true</span><br><span class="line">server.tomcat.accesslog.pattern=%t %a &quot;%r&quot; %s (%D ms)</span><br><span class="line">server.tomcat.accesslog.suffix=.log</span><br><span class="line">server.tomcat.max-threads=10</span><br><span class="line">server.tomcat.port-header=X-Forwarded-Port</span><br><span class="line">server.tomcat.protocol-header=X-Forwarded-Proto</span><br><span class="line">server.tomcat.protocol-header-https-value=https</span><br><span class="line">server.tomcat.remote-ip-header=X-FORWARDED-FOR</span><br><span class="line">server.tomcat.uri-encoding=UTF-8</span><br><span class="line"></span><br><span class="line">spring.http.encoding.charset=UTF-8</span><br><span class="line">spring.http.encoding.enabled=true</span><br><span class="line">spring.http.encoding.force=true</span><br><span class="line"></span><br><span class="line">##</span><br><span class="line"># CAS Cloud Bus Configuration</span><br><span class="line">#</span><br><span class="line">spring.cloud.bus.enabled=false</span><br><span class="line"></span><br><span class="line">endpoints.enabled=false</span><br><span class="line">endpoints.sensitive=true</span><br><span class="line"></span><br><span class="line">endpoints.restart.enabled=false</span><br><span class="line">endpoints.shutdown.enabled=false</span><br><span class="line"></span><br><span class="line">management.security.enabled=true</span><br><span class="line">management.security.roles=ACTUATOR,ADMIN</span><br><span class="line">management.security.sessions=if_required</span><br><span class="line">management.context-path=/status</span><br><span class="line">management.add-application-context-header=false</span><br><span class="line"></span><br><span class="line">security.basic.authorize-mode=role</span><br><span class="line">security.basic.enabled=false</span><br><span class="line">security.basic.path=/cas/status/**</span><br><span class="line"></span><br><span class="line">##</span><br><span class="line"># CAS Web Application Session Configuration</span><br><span class="line">#</span><br><span class="line">server.session.timeout=300</span><br><span class="line">server.session.cookie.http-only=true</span><br><span class="line">server.session.tracking-modes=COOKIE</span><br><span class="line"></span><br><span class="line">##</span><br><span class="line"># CAS Thymeleaf View Configuration</span><br><span class="line">#</span><br><span class="line">spring.thymeleaf.encoding=UTF-8</span><br><span class="line">spring.thymeleaf.cache=true</span><br><span class="line">spring.thymeleaf.mode=HTML</span><br><span class="line">##</span><br><span class="line"># CAS Log4j Configuration</span><br><span class="line">#</span><br><span class="line"># logging.config=file:/etc/cas/log4j2.xml</span><br><span class="line">server.context-parameters.isLog4jAutoInitializationDisabled=true</span><br><span class="line"></span><br><span class="line">##</span><br><span class="line"># CAS AspectJ Configuration</span><br><span class="line">#</span><br><span class="line">spring.aop.auto=true</span><br><span class="line">spring.aop.proxy-target-class=true</span><br><span class="line"></span><br><span class="line">##</span><br><span class="line"># CAS Authentication Credentials</span><br><span class="line">#</span><br><span class="line">cas.authn.accept.users=casuser::Mellon</span><br></pre></td></tr></table></figure>
+<h3 id="java"><a href="#java" class="headerlink" title=".java"></a>.java</h3><p>删除java文件,包括<code>src/main/java</code>，<code>src/test/java</code>，否则会影响运行</p>
+<h1 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h1><h2 id="启动项目"><a href="#启动项目" class="headerlink" title="启动项目"></a>启动项目</h2><p>由于这个项目是spring boot，所以可以用java -jar指令直接运行的，那么我们运行交给cas提供的脚本吧</p>
+<p><strong>所有执行命令需要在所在的工程下执行</strong></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/14481291-2fb1b710855025d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>初始化命令:</p>
+<blockquote>
+<p>build.cmd init</p>
+</blockquote>
+<p>打包命令:</p>
+<blockquote>
+<p>build.cmd package</p>
+</blockquote>
+<p>清理target目录文件命令:</p>
+<blockquote>
+<p>build.cmd clean</p>
+</blockquote>
+<p>启动命令:</p>
+<blockquote>
+<p>build.cmd run</p>
+</blockquote>
+<p>如下图，显示启动成功</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/14481291-bef15fed3171475c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>访问   <a href="http://localhost:8443/cas/login" target="_blank" rel="noopener">http://localhost:8443/cas/login</a></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/14481291-c172f24a16a90e02.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h2 id="登陆"><a href="#登陆" class="headerlink" title="登陆"></a>登陆</h2><p>默认用户名/密码为：casuser/Mellon</p>
+<p><strong>注意： </strong><br>由于目前为静态配置用户，采用默认用户登录即可<br>登录后结果： </p>
+<p><img src="https://upload-images.jianshu.io/upload_images/14481291-be1490d8f920f0e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
+<li>利用手脚架搭建了cas，并且进行了配置文件的调整</li>
+<li>简单介绍了cas</li>
+</ol>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/12/04/2018-12-04-CAS单点登录-基础搭建/">CAS单点登录-基础搭建</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Null指针</a></p>
+        <p><span>发布时间:</span>2018-12-04, 09:59:33</p>
+        <p><span>最后更新:</span>2018-12-04, 14:17:02</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/12/04/2018-12-04-CAS单点登录-基础搭建/" title="CAS单点登录-基础搭建">http://yoursite.com/2018/12/04/2018-12-04-CAS单点登录-基础搭建/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/12/04/2018-12-04-CAS单点登录-基础搭建/　　作者: Null指针" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/12/02/2018-12-02-CAS单点登录-简介/">
+                    CAS单点登录-简介
+                </a>
+            </div>
+        
+    </nav>
+
+  
+  
+	
+	    <!--打赏-->
+<div class="reward">
+	<div class="reward-button">赏 <span class="reward-code">
+	  <span class="alipay-code"> <img class="alipay-img wdp-appear" src="/img/Alipay.jpg"><b>支付宝打赏</b> </span> 
+	  <span class="wechat-code"> <img class="wechat-img wdp-appear" src="/img/WeChatpay.jpg"><b>微信打赏</b> </span> 
+ 	</span></div>
+	<p class="reward-notice">如果文章对你有帮助，欢迎点击上方按钮打赏作者</p>
+</div>
+<!--打赏-->
+	
+
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#手脚架代码下载"><span class="toc-number">1.</span> <span class="toc-text">手脚架代码下载</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#代码下载"><span class="toc-number">1.1.</span> <span class="toc-text">代码下载</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目调整"><span class="toc-number">2.</span> <span class="toc-text">项目调整</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建项目"><span class="toc-number">2.1.</span> <span class="toc-text">创建项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#maven调整"><span class="toc-number">2.2.</span> <span class="toc-text">maven调整</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#parent-pom-xml"><span class="toc-number">2.2.1.</span> <span class="toc-text">parent pom.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sso-server-pom-xml"><span class="toc-number">2.2.2.</span> <span class="toc-text">sso-server pom.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#log4j2-xml"><span class="toc-number">2.2.3.</span> <span class="toc-text">log4j2.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#application-properties"><span class="toc-number">2.2.4.</span> <span class="toc-text">application.properties</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java"><span class="toc-number">2.2.5.</span> <span class="toc-text">.java</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#运行"><span class="toc-number">3.</span> <span class="toc-text">运行</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#启动项目"><span class="toc-number">3.1.</span> <span class="toc-text">启动项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-number">3.2.</span> <span class="toc-text">测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#登陆"><span class="toc-number">3.3.</span> <span class="toc-text">登陆</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"CAS单点登录-基础搭建　| Null指针的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+        <!-- ������City�氲װ���� -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80MDY2OC8xNzE5NQ==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> Ϊ����ʹ�����������۹����뼤��JavaScript</noscript>
+</div>
+<!-- City�氲װ��������� -->
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/12/02/2018-12-02-CAS单点登录-简介/" title="下一篇: CAS单点登录-简介">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/12/04/2018-12-04-CAS单点登录-基础搭建/">CAS单点登录-基础搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/02/2018-12-02-CAS单点登录-简介/">CAS单点登录-简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/30/2018-11-30-MySQL的主从复制/">MySQL的主从复制</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/28/2018-11-28-Linux下下载安装jdk1.8/">Linux下下载安装jdk1.8</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/20/2018-11-20-通过Xshell6跳板机在Linux上安装MySQL5.7/">通过Xshell6跳板机在Linux上安装MySQL5.7</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/16/2018-11-16-Web安全-XSS/">Web安全-XSS</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/07/2018-11-07-微信小程序-入门/">微信小程序-入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/05/2018-11-05-Hexo主题更改以及小功能的添加/">Hexo主题更改以及小功能的添加</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/01/2018-11-01-hexo+github搭建博客/">hexo+github搭建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/31/2018-10-31-String，StringBuilder，StringBuffer的区别/">String，StringBuilder，StringBuffer的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/27/2018-10-27-学习笔记-EDAS介绍/">学习笔记-EDAS介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/10/2018-10-10-Method breakpoints may dramatically slow down debugging情况解决/">Method breakpoints may dramatically slow down debugging情况解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/2018-10-04-MYSQL limit,offset 区别/">MYSQL limit,offset 区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/2018-10-01-freemarker判断对象是否为空/">freemarker判断对象是否为空</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/28/2018-09-28-IDEA搭建和部署Maven项目/">IDEA搭建和部署Maven项目</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/22/2018-09-22-上传文件至GitHub/">上传文件至GitHub</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/15/2018-09-15-在Windows上安装Maven/">在Windows上安装Maven</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/2018-08-31-学习笔记——Spring MVC接收前端入参数据的方式/">学习笔记——Spring MVC接收前端入参数据的方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/2018-08-15-打开Navicat for mysql，显示Missing required libmysql_e.dll, 126/">打开Navicat for mysql，显示Missing required libmysql_e.dll, 126</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/04/2018-08-04-学习笔记——设计模式：MVC模式/">学习笔记——设计模式：MVC模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/30/2018-07-30-学习笔记——MyBatis入门/">学习笔记——MyBatis入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/14/2018-07-14-学习笔记——Java技术体系/">学习笔记——Java技术体系</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/02/2018-07-02-为什么Java中1000==1000为false而100==100为true/">为什么Java中1000==1000为false而100==100为true</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/25/2018-06-25-学习笔记——浏览器对象模型(Window)/">学习笔记——浏览器对象模型（Window）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/21/2018-06-21-Git安装/">Git安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/01/2018-03-01-MarkDown/">MarkDown</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/03/2017-09-03-hello-world/">Hello hexo</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+
+</aricle></div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2018 Null指针
+            </div>
+            <div class="footer-right">
+                
+            </div>
+        </div>
+        
+        <div>
+					<span id="busuanzi_container_site_uv" style="margin-left: -100px;">
+					  	您是第<span id="busuanzi_value_site_uv"></span>位访客 | 
+					</span>
+					
+	        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	        <span id="busuanzi_container_site_pv">
+					    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+					</span>
+				</div>
+				
+				
+				<div>
+        <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+				<script>
+				    var now = new Date(); 
+				    function createtime() { 
+				        var grt= new Date("07/01/2018 12:49:00");//此处修改你的建站时间或者网站上线时间 
+				        now.setTime(now.getTime()+250); 
+				        days = (now - grt ) / 1000 / 60 / 60 / 24; 
+				        dnum = Math.floor(days); 
+				        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); 
+				        hnum = Math.floor(hours); 
+				        if(String(hnum).length ==1 ){
+				        	hnum = "0" + hnum;
+				        } 
+				        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+				        mnum = Math.floor(minutes); 
+				        if(String(mnum).length ==1 ){
+				        	mnum = "0" + mnum;
+				        } 
+				        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+				        snum = Math.round(seconds); 
+				        if(String(snum).length ==1 ){
+				        	snum = "0" + snum;
+				        } 
+				        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+				        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+				    } 
+						setInterval("createtime()",250);
+				</script>
+				</div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+    <script>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+                clearTimeout(titleTime);
+            }
+            else {
+                document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+                titleTime = setTimeout(function() {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        })
+    </script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script type="text/javascript" src="/resources/float.js"></script>
+<script type="text/javascript" src="/resources/love.js"></script>
+<script type="text/javascript" color="0,104,183" opacity="1" zindex="-1" count="50" src="/resources/particle.js"></script>
+<script type="text/javascript" src="/resources/typewriter.js"></script>
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"live2d-widget-model-miku"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
