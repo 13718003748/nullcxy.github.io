@@ -14,20 +14,24 @@
 <meta name="author" content="艾@51">
 
 
-    
-    
 
-
-<meta name="description" content="This is my home!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="艾@51的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="前言上一篇：CAS单点登录-基础搭建 下一篇：待续…… 配置中心什么是配置中心分布式配置中心，方便服务配置文件统一管理，它支持配置服务放在配置服务的内存中（即本地），也支持放在远程Git仓库中。在spring cloud config 组件中，分两个角色，一是config server，二是config client。 重点： 服务是以spring.application.name的配置属性来决定">
+<meta name="keywords" content="SSO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CAS单点登录-配置中心">
+<meta property="og:url" content="http://yoursite.com/2018/12/11/2018-12-11-CAS单点登录-配置中心/index.html">
 <meta property="og:site_name" content="艾@51的博客">
-<meta property="og:description" content="This is my home!">
+<meta property="og:description" content="前言上一篇：CAS单点登录-基础搭建 下一篇：待续…… 配置中心什么是配置中心分布式配置中心，方便服务配置文件统一管理，它支持配置服务放在配置服务的内存中（即本地），也支持放在远程Git仓库中。在spring cloud config 组件中，分两个角色，一是config server，二是config client。 重点： 服务是以spring.application.name的配置属性来决定">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-fcc42d756c2bb670.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-90cd3af69a4ed26c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-21286a1f6a0d28e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-ddfa0e0b07788689.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-12-11T08:40:25.496Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="艾@51的博客">
-<meta name="twitter:description" content="This is my home!">
+<meta name="twitter:title" content="CAS单点登录-配置中心">
+<meta name="twitter:description" content="前言上一篇：CAS单点登录-基础搭建 下一篇：待续…… 配置中心什么是配置中心分布式配置中心，方便服务配置文件统一管理，它支持配置服务放在配置服务的内存中（即本地），也支持放在远程Git仓库中。在spring cloud config 组件中，分两个角色，一是config server，二是config client。 重点： 服务是以spring.application.name的配置属性来决定">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/14481291-fcc42d756c2bb670.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -55,13 +59,11 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
-    <style> .article { opacity: 0;} </style>
-
 
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>艾@51的博客</title>
+<title>CAS单点登录-配置中心 | 艾@51的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -70,8 +72,8 @@
     var yiliaConfig = {
         fancybox: true,
         animate: true,
-        isHome: true,
-        isPost: false,
+        isHome: false,
+        isPost: true,
         isArchive: false,
         isTag: false,
         isCategory: false,
@@ -282,9 +284,7 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap">
-  
-    <aricle id="post-2018-12-11-CAS单点登录-配置中心" class="article article-type-post" itemscope="" itemprop="blogPost">
+      <div class="body-wrap"><aricle id="post-2018-12-11-CAS单点登录-配置中心" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2018/12/11/2018-12-11-CAS单点登录-配置中心/" class="article-date">
@@ -302,8 +302,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/11/2018-12-11-CAS单点登录-配置中心/">CAS单点登录-配置中心</a>
+    <h1 class="article-title" itemprop="name">
+      CAS单点登录-配置中心
     </h1>
   
 
@@ -328,6 +328,21 @@
 </div>
         
       </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/CAS/">CAS</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SSO/">SSO</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -402,863 +417,152 @@
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/CAS/">CAS</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SSO/">SSO</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
   
-  
-	
-
-
-
-
-
-
-
-
-
-
-</aricle>
-  
-    <aricle id="post-2018-12-04-CAS单点登录-基础搭建" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/12/04/2018-12-04-CAS单点登录-基础搭建/" class="article-date">
-      <time datetime="2018-12-04T01:59:33.000Z" itemprop="datePublished">2018-12-04</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/04/2018-12-04-CAS单点登录-基础搭建/">CAS单点登录-基础搭建</a>
-    </h1>
-  
-
-        
-        	<div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  博文字数： </span>
-        <span class="post-count">1.6k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">8分钟</span>
-      </span>
-    </span>
-</div>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一篇：<a href="https://nullcxy.github.io/2018/12/02/2018-12-02-CAS%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95-%E7%AE%80%E4%BB%8B/" target="_blank" rel="noopener">CAS单点登录-简介</a></p>
-<p>下一篇：<a href="https://www.jianshu.com/p/1b96bd04f7a0" target="_blank" rel="noopener">CAS单点登录-配置中心</a></p>
-<h1 id="手脚架代码下载"><a href="#手脚架代码下载" class="headerlink" title="手脚架代码下载"></a>手脚架代码下载</h1><h2 id="代码下载"><a href="#代码下载" class="headerlink" title="代码下载"></a>代码下载</h2><p>官方提供了<a href="https://casinitializr.herokuapp.com/" target="_blank" rel="noopener">下载工具</a>(需要FQ)</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/CAS/">CAS</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SSO/">SSO</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/12/04/2018-12-04-CAS单点登录-基础搭建/#more">more >></a>
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/12/11/2018-12-11-CAS单点登录-配置中心/">CAS单点登录-配置中心</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">艾@51</a></p>
+        <p><span>发布时间:</span>2018-12-11, 15:01:19</p>
+        <p><span>最后更新:</span>2018-12-11, 16:40:25</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/12/11/2018-12-11-CAS单点登录-配置中心/" title="CAS单点登录-配置中心">http://yoursite.com/2018/12/11/2018-12-11-CAS单点登录-配置中心/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/12/11/2018-12-11-CAS单点登录-配置中心/　　作者: 艾@51" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-  
-	
-
-
-
-
-
-
-
-
-
-
-</aricle>
-  
-    <aricle id="post-2018-12-02-CAS单点登录-简介" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/12/02/2018-12-02-CAS单点登录-简介/" class="article-date">
-      <time datetime="2018-12-02T02:46:09.000Z" itemprop="datePublished">2018-12-02</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/02/2018-12-02-CAS单点登录-简介/">CAS单点登录-简介</a>
-    </h1>
-  
-
-        
-        	<div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  博文字数： </span>
-        <span class="post-count">461字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分钟</span>
-      </span>
-    </span>
-</div>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>下一篇：<a href="https://nullcxy.github.io/2018/12/04/2018-12-04-CAS%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95-%E5%9F%BA%E7%A1%80%E6%90%AD%E5%BB%BA/" target="_blank" rel="noopener">CAS单点登录-基础搭建</a></p>
-<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><h2 id="CAS"><a href="#CAS" class="headerlink" title="CAS"></a>CAS</h2><p>CAS是一个单点登录框架， 是 Yale 大学发起的一个开源项目，旨在为 Web 应用系统提供一种可靠的单点登录方法，CAS 在 2004 年 12 月正式成为 JA-SIG 的一个项目。代码目前在<a href="https://github.com/apereo/cas" target="_blank" rel="noopener">github</a>上管理</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/CAS/">CAS</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SSO/">SSO</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/12/02/2018-12-02-CAS单点登录-简介/#more">more >></a>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
         </p>
-      
-      <div class="clearfix"></div>
     </div>
-    
-  </div>
-  
-  
-	
 
 
 
-
-
-
-
-
-
-
-</aricle>
-  
-    <aricle id="post-2018-11-30-MySQL的主从复制" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/11/30/2018-11-30-MySQL的主从复制/" class="article-date">
-      <time datetime="2018-11-30T05:38:09.000Z" itemprop="datePublished">2018-11-30</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
+    <nav id="article-nav">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/30/2018-11-30-MySQL的主从复制/">MySQL的主从复制</a>
-    </h1>
-  
-
         
-        	<div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  博文字数： </span>
-        <span class="post-count">1.2k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">5分钟</span>
-      </span>
-    </span>
-</div>
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/12/04/2018-12-04-CAS单点登录-基础搭建/">
+                    CAS单点登录-基础搭建
+                </a>
+            </div>
         
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><h2 id="为什么要主从复制"><a href="#为什么要主从复制" class="headerlink" title="为什么要主从复制"></a>为什么要主从复制</h2>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/数据库/">数据库</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/11/30/2018-11-30-MySQL的主从复制/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-  
-	
-
-
-
-
-
-
-
-
-
-
-</aricle>
-  
-    <aricle id="post-2018-11-28-Linux下下载安装jdk1.8" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/11/28/2018-11-28-Linux下下载安装jdk1.8/" class="article-date">
-      <time datetime="2018-11-28T07:19:45.000Z" itemprop="datePublished">2018-11-28</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/28/2018-11-28-Linux下下载安装jdk1.8/">Linux下下载安装jdk1.8</a>
-    </h1>
-  
-
-        
-        	<div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  博文字数： </span>
-        <span class="post-count">151字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分钟</span>
-      </span>
-    </span>
-</div>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="创建目录"><a href="#创建目录" class="headerlink" title="创建目录"></a>创建目录</h1><p>进入/usr文件夹，创建java文件夹</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/工具/">工具</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jdk/">jdk</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/11/28/2018-11-28-Linux下下载安装jdk1.8/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-  
-	
-
-
-
-
-
-
-
-
-
-
-</aricle>
-  
-    <aricle id="post-2018-11-20-通过Xshell6跳板机在Linux上安装MySQL5.7" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/11/20/2018-11-20-通过Xshell6跳板机在Linux上安装MySQL5.7/" class="article-date">
-      <time datetime="2018-11-20T06:24:00.000Z" itemprop="datePublished">2018-11-20</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/20/2018-11-20-通过Xshell6跳板机在Linux上安装MySQL5.7/">通过Xshell6跳板机在Linux上安装MySQL5.7</a>
-    </h1>
-  
-
-        
-        	<div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  博文字数： </span>
-        <span class="post-count">763字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">3分钟</span>
-      </span>
-    </span>
-</div>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>想在自己的服务器上创建数据库，这里我通过XShell远程连接公司内网机器。如果是自己的服务器，可以直接连接，输入用户名密码即可。</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/数据库/">数据库</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/XShell/">XShell</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/11/20/2018-11-20-通过Xshell6跳板机在Linux上安装MySQL5.7/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-  
-	
-
-
-
-
-
-
-
-
-
-
-</aricle>
-  
-    <aricle id="post-2018-11-16-Web安全-XSS" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/11/16/2018-11-16-Web安全-XSS/" class="article-date">
-      <time datetime="2018-11-16T02:48:32.000Z" itemprop="datePublished">2018-11-16</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/16/2018-11-16-Web安全-XSS/">Web安全-XSS</a>
-    </h1>
-  
-
-        
-        	<div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  博文字数： </span>
-        <span class="post-count">2.1k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">9分钟</span>
-      </span>
-    </span>
-</div>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="XSS的定义"><a href="#XSS的定义" class="headerlink" title="XSS的定义"></a>XSS的定义</h1><p>攻击者利用网站漏洞把恶意的脚本代码（通常包括HTML代码和JavaScript脚本）注入到网页中，当其他用户浏览这些网页时，就会执行其中的恶意代码，对受害用户可能采取cookie窃取、会话劫持、钓鱼欺骗。</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/XSS/">XSS</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/XSS/">XSS</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/11/16/2018-11-16-Web安全-XSS/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-  
-	
-
-
-
-
-
-
-
-
-
-
-</aricle>
-  
-    <aricle id="post-2018-11-07-微信小程序-入门" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/11/07/2018-11-07-微信小程序-入门/" class="article-date">
-      <time datetime="2018-11-07T08:07:32.000Z" itemprop="datePublished">2018-11-07</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/07/2018-11-07-微信小程序-入门/">微信小程序-入门</a>
-    </h1>
-  
-
-        
-        	<div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  博文字数： </span>
-        <span class="post-count">350字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分钟</span>
-      </span>
-    </span>
-</div>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h2 id="什么是小程序？它有着什么样的功能？"><a href="#什么是小程序？它有着什么样的功能？" class="headerlink" title="什么是小程序？它有着什么样的功能？"></a>什么是小程序？它有着什么样的功能？</h2>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信/">微信</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/11/07/2018-11-07-微信小程序-入门/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-  
-	
-
-
-
-
-
-
-
-
-
-
-</aricle>
-  
-    <aricle id="post-2018-11-05-Hexo主题更改以及小功能的添加" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/11/05/2018-11-05-Hexo主题更改以及小功能的添加/" class="article-date">
-      <time datetime="2018-11-05T08:07:32.000Z" itemprop="datePublished">2018-11-05</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/05/2018-11-05-Hexo主题更改以及小功能的添加/">Hexo主题更改以及小功能的添加</a>
-    </h1>
-  
-
-        
-        	<div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  博文字数： </span>
-        <span class="post-count">2.6k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">11分钟</span>
-      </span>
-    </span>
-</div>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>之前搭建的博客基本功能已经实现了，现在就折腾着好好维护一下<a href="https://nullcxy.github.io/" target="_blank" rel="noopener">我的博客</a>了，于是参考着别人的博客添加一些小功能，并且整理了下来。</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/11/05/2018-11-05-Hexo主题更改以及小功能的添加/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-  
-	
-
-
-
-
-
-
-
-
-
-
-</aricle>
-  
-    <aricle id="post-2018-11-01-hexo+github搭建博客" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/11/01/2018-11-01-hexo+github搭建博客/" class="article-date">
-      <time datetime="2018-11-01T08:07:32.000Z" itemprop="datePublished">2018-11-01</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/01/2018-11-01-hexo+github搭建博客/">hexo+github搭建博客</a>
-    </h1>
-  
-
-        
-        	<div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  博文字数： </span>
-        <span class="post-count">970字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">3分钟</span>
-      </span>
-    </span>
-</div>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>不管简书、掘金或者其他网站，总会感觉不是自己的地盘，所以我就想自己搭建个博客，可以在自己的一亩三分地上耕耘收获。不仅如此，以往我写的博客都会到处乱放，比如一会放到掘金，一会放到简书等等，不利于管理，搭建一个自己的博客也更方便了个人的整理分类。目前来说，<code>hexo</code>还是挺主流的一种搭建博客的方式，主题也很多，可以供各位选择。先给大家看下<a href="https://nullcxy.github.io/" target="_blank" rel="noopener">我的博客</a>吧</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2018/11/01/2018-11-01-hexo+github搭建博客/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-  
-	
-
-
-
-
-
-
-
-
-
-
-</aricle>
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
+
   
+  
+	
+	    <!--打赏-->
+<div class="reward">
+	<div class="reward-button">赏 <span class="reward-code">
+	  <span class="alipay-code"> <img class="alipay-img wdp-appear" src="/img/Alipay.jpg"><b>支付宝打赏</b> </span> 
+	  <span class="wechat-code"> <img class="wechat-img wdp-appear" src="/img/WeChatpay.jpg"><b>微信打赏</b> </span> 
+ 	</span></div>
+	<p class="reward-notice">如果文章对你有帮助，欢迎点击上方按钮打赏作者</p>
 </div>
+<!--打赏-->
+	
+
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置中心"><span class="toc-number">2.</span> <span class="toc-text">配置中心</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是配置中心"><span class="toc-number">2.1.</span> <span class="toc-text">什么是配置中心</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#搭建配置中心"><span class="toc-number">2.2.</span> <span class="toc-text">搭建配置中心</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化框架"><span class="toc-number">2.2.1.</span> <span class="toc-text">初始化框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主pom-xml添加sso-config模块"><span class="toc-number">2.2.2.</span> <span class="toc-text">主pom.xml添加sso-config模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改sso-config的pom-xml"><span class="toc-number">2.2.3.</span> <span class="toc-text">修改sso-config的pom.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SsoConfigApplication-java"><span class="toc-number">2.2.4.</span> <span class="toc-text">SsoConfigApplication.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#application-yml"><span class="toc-number">2.2.5.</span> <span class="toc-text">application.yml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动"><span class="toc-number">2.2.6.</span> <span class="toc-text">启动</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cas连接配置中心"><span class="toc-number">2.3.</span> <span class="toc-text">cas连接配置中心</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建sso-dev-properties"><span class="toc-number">2.3.1.</span> <span class="toc-text">创建sso-dev.properties</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改sso-dev-properties配置"><span class="toc-number">2.3.2.</span> <span class="toc-text">修改sso-dev.properties配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动-1"><span class="toc-number">2.3.3.</span> <span class="toc-text">启动</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sso-server"><span class="toc-number">2.4.</span> <span class="toc-text">sso-server</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"CAS单点登录-配置中心　| 艾@51的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+        <!-- ������City�氲װ���� -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80MDY2OC8xNzE5NQ==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> Ϊ����ʹ�����������۹����뼤��JavaScript</noscript>
+</div>
+<!-- City�氲װ��������� -->
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/12/04/2018-12-04-CAS单点登录-基础搭建/" title="下一篇: CAS单点登录-基础搭建">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/12/11/2018-12-11-CAS单点登录-配置中心/">CAS单点登录-配置中心</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/04/2018-12-04-CAS单点登录-基础搭建/">CAS单点登录-基础搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/02/2018-12-02-CAS单点登录-简介/">CAS单点登录-简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/30/2018-11-30-MySQL的主从复制/">MySQL的主从复制</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/28/2018-11-28-Linux下下载安装jdk1.8/">Linux下下载安装jdk1.8</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/20/2018-11-20-通过Xshell6跳板机在Linux上安装MySQL5.7/">通过Xshell6跳板机在Linux上安装MySQL5.7</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/16/2018-11-16-Web安全-XSS/">Web安全-XSS</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/07/2018-11-07-微信小程序-入门/">微信小程序-入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/05/2018-11-05-Hexo主题更改以及小功能的添加/">Hexo主题更改以及小功能的添加</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/01/2018-11-01-hexo+github搭建博客/">hexo+github搭建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/31/2018-10-31-String，StringBuilder，StringBuffer的区别/">String，StringBuilder，StringBuffer的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/27/2018-10-27-学习笔记-EDAS介绍/">学习笔记-EDAS介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/10/2018-10-10-Method breakpoints may dramatically slow down debugging情况解决/">Method breakpoints may dramatically slow down debugging情况解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/2018-10-04-MYSQL limit,offset 区别/">MYSQL limit,offset 区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/2018-10-01-freemarker判断对象是否为空/">freemarker判断对象是否为空</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/28/2018-09-28-IDEA搭建和部署Maven项目/">IDEA搭建和部署Maven项目</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/22/2018-09-22-上传文件至GitHub/">上传文件至GitHub</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/15/2018-09-15-在Windows上安装Maven/">在Windows上安装Maven</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/2018-08-31-学习笔记——Spring MVC接收前端入参数据的方式/">学习笔记——Spring MVC接收前端入参数据的方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/2018-08-15-打开Navicat for mysql，显示Missing required libmysql_e.dll, 126/">打开Navicat for mysql，显示Missing required libmysql_e.dll, 126</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/04/2018-08-04-学习笔记——设计模式：MVC模式/">学习笔记——设计模式：MVC模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/30/2018-07-30-学习笔记——MyBatis入门/">学习笔记——MyBatis入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/14/2018-07-14-学习笔记——Java技术体系/">学习笔记——Java技术体系</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/02/2018-07-02-为什么Java中1000==1000为false而100==100为true/">为什么Java中1000==1000为false而100==100为true</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/25/2018-06-25-学习笔记——浏览器对象模型(Window)/">学习笔记——浏览器对象模型（Window）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/21/2018-06-21-Git安装/">Git安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/01/2018-03-01-MarkDown/">MarkDown</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/03/2017-09-03-hello-world/">Hello hexo</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+
+</aricle></div>
       <footer id="footer">
     <div class="outer">
         <div id="footer-info">
@@ -1336,10 +640,6 @@
         })
     </script>
 
-
-    
-
-     
 
 
 
