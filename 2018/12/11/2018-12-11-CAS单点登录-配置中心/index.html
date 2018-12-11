@@ -15,22 +15,22 @@
 
 
 
-<meta name="description" content="前言上一篇：CAS单点登录-基础搭建 下一篇：待续…… 配置中心什么是配置中心分布式配置中心，方便服务配置文件统一管理，它支持配置服务放在配置服务的内存中（即本地），也支持放在远程Git仓库中。在spring cloud config 组件中，分两个角色，一是config server，二是config client。 重点： 服务是以spring.application.name的配置属性来决定">
+<meta name="description" content="前言上一篇：CAS单点登录-基础搭建 下一篇：待续…… 配置中心什么是配置中心分布式配置中心，方便服务配置文件统一管理，它支持配置服务放在配置服务的内存中（即本地），也支持放在远程Git仓库中。在spring cloud config 组件中，分两个角色，一是config server，二是config client。">
 <meta name="keywords" content="SSO">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CAS单点登录-配置中心">
 <meta property="og:url" content="http://yoursite.com/2018/12/11/2018-12-11-CAS单点登录-配置中心/index.html">
 <meta property="og:site_name" content="艾@51的博客">
-<meta property="og:description" content="前言上一篇：CAS单点登录-基础搭建 下一篇：待续…… 配置中心什么是配置中心分布式配置中心，方便服务配置文件统一管理，它支持配置服务放在配置服务的内存中（即本地），也支持放在远程Git仓库中。在spring cloud config 组件中，分两个角色，一是config server，二是config client。 重点： 服务是以spring.application.name的配置属性来决定">
+<meta property="og:description" content="前言上一篇：CAS单点登录-基础搭建 下一篇：待续…… 配置中心什么是配置中心分布式配置中心，方便服务配置文件统一管理，它支持配置服务放在配置服务的内存中（即本地），也支持放在远程Git仓库中。在spring cloud config 组件中，分两个角色，一是config server，二是config client。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-fcc42d756c2bb670.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-90cd3af69a4ed26c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-21286a1f6a0d28e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-ddfa0e0b07788689.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-12-11T08:40:25.496Z">
+<meta property="og:updated_time" content="2018-12-11T08:46:17.140Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CAS单点登录-配置中心">
-<meta name="twitter:description" content="前言上一篇：CAS单点登录-基础搭建 下一篇：待续…… 配置中心什么是配置中心分布式配置中心，方便服务配置文件统一管理，它支持配置服务放在配置服务的内存中（即本地），也支持放在远程Git仓库中。在spring cloud config 组件中，分两个角色，一是config server，二是config client。 重点： 服务是以spring.application.name的配置属性来决定">
+<meta name="twitter:description" content="前言上一篇：CAS单点登录-基础搭建 下一篇：待续…… 配置中心什么是配置中心分布式配置中心，方便服务配置文件统一管理，它支持配置服务放在配置服务的内存中（即本地），也支持放在远程Git仓库中。在spring cloud config 组件中，分两个角色，一是config server，二是config client。">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/14481291-fcc42d756c2bb670.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -351,6 +351,7 @@
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一篇：<a href="https://nullcxy.github.io/2018/12/04/2018-12-04-CAS%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95-%E5%9F%BA%E7%A1%80%E6%90%AD%E5%BB%BA/" target="_blank" rel="noopener">CAS单点登录-基础搭建</a></p>
 <p>下一篇：<a href="">待续……</a></p>
 <h1 id="配置中心"><a href="#配置中心" class="headerlink" title="配置中心"></a>配置中心</h1><h2 id="什么是配置中心"><a href="#什么是配置中心" class="headerlink" title="什么是配置中心"></a>什么是配置中心</h2><p>分布式配置中心，方便服务配置文件统一管理，它支持配置服务放在配置服务的内存中（即本地），也支持放在远程Git仓库中。在spring cloud config 组件中，分两个角色，一是config server，二是config client。</p>
+<a id="more"></a>
 <p><strong>重点：</strong></p>
 <p>服务是以spring.application.name的配置属性来决定这个服务的id，也就是告诉配置中心，我是谁</p>
 <p>spring.profiles.active这是要拿哪个配置文件，那么这样我们就可以区分多个维度或者说环境，这里可以是多个，可以逗号分隔</p>
@@ -424,7 +425,7 @@
         <p><span>本文标题:</span><a href="/2018/12/11/2018-12-11-CAS单点登录-配置中心/">CAS单点登录-配置中心</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">艾@51</a></p>
         <p><span>发布时间:</span>2018-12-11, 15:01:19</p>
-        <p><span>最后更新:</span>2018-12-11, 16:40:25</p>
+        <p><span>最后更新:</span>2018-12-11, 16:46:17</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/12/11/2018-12-11-CAS单点登录-配置中心/" title="CAS单点登录-配置中心">http://yoursite.com/2018/12/11/2018-12-11-CAS单点登录-配置中心/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/12/11/2018-12-11-CAS单点登录-配置中心/　　作者: 艾@51" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
