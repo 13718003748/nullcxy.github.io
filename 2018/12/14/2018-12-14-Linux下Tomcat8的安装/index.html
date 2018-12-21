@@ -15,16 +15,20 @@
 
 
 
-<meta name="description" content="This is my home!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="艾@51的博客">
-<meta property="og:url" content="http://yoursite.com/tags/Tomcat/index.html">
+<meta name="description" content="前言安装Tomcat之前首先安装jdk并且配置java的环境变量。">
+<meta name="keywords" content="Linux,Tomcat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux下Tomcat8的安装">
+<meta property="og:url" content="http://yoursite.com/2018/12/14/2018-12-14-Linux下Tomcat8的安装/index.html">
 <meta property="og:site_name" content="艾@51的博客">
-<meta property="og:description" content="This is my home!">
+<meta property="og:description" content="前言安装Tomcat之前首先安装jdk并且配置java的环境变量。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-f3a2da1ca7e61401.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-12-14T07:02:02.788Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="艾@51的博客">
-<meta name="twitter:description" content="This is my home!">
+<meta name="twitter:title" content="Linux下Tomcat8的安装">
+<meta name="twitter:description" content="前言安装Tomcat之前首先安装jdk并且配置java的环境变量。">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/14481291-f3a2da1ca7e61401.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -56,7 +60,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Tag: Tomcat | 艾@51的博客</title>
+<title>Linux下Tomcat8的安装 | 艾@51的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -66,9 +70,9 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
+        isPost: true,
         isArchive: false,
-        isTag: true,
+        isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
@@ -277,61 +281,241 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><aricle id="post-2018-12-14-Linux下Tomcat8的安装" class="article article-type-post" itemscope="" itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2018/12/14/2018-12-14-Linux下Tomcat8的安装/" class="archive-article-date">
-      <time datetime="2018-12-14T06:27:33.000Z" itemprop="datePublished">12-14</time>
+    <div class="article-meta">
+      <a href="/2018/12/14/2018-12-14-Linux下Tomcat8的安装/" class="article-date">
+      <time datetime="2018-12-14T06:27:33.000Z" itemprop="datePublished">2018-12-14</time>
 </a>
 
 
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/14/2018-12-14-Linux下Tomcat8的安装/">Linux下Tomcat8的安装</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Linux下Tomcat8的安装
     </h1>
   
 
-        <div class="article-info info-on-archive">
-          
+        
+        	<div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  博文字数： </span>
+        <span class="post-count">141字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">1分钟</span>
+      </span>
+    </span>
+</div>
+        
+      </header>
+      
+      <div class="article-info article-info-post">
+        
     <div class="article-category tagcloud">
     <a class="article-category-link" href="/categories/Linux/">Linux</a>
     </div>
 
 
-          
+        
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tomcat/">Tomcat</a></li></ul>
     </div>
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>安装Tomcat之前首先安装jdk并且配置java的环境变量。</p>
+<a id="more"></a>
+<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><p>jdk：1.8</p>
+<p>工具： XShell6</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-8/v8.5.35/bin/apache-tomcat-8.5.35.tar.gz</span><br></pre></td></tr></table></figure>
+<h2 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf apache-tomcat-8.5.35.tar.gz</span><br></pre></td></tr></table></figure>
+<h1 id="创建目录"><a href="#创建目录" class="headerlink" title="创建目录"></a>创建目录</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /usr/local/tomcat</span><br></pre></td></tr></table></figure>
+<h2 id="移动文件"><a href="#移动文件" class="headerlink" title="移动文件"></a>移动文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv apache-tomcat-8.5.35 /usr/local/tomcat</span><br></pre></td></tr></table></figure>
+<h2 id="进入bin目录"><a href="#进入bin目录" class="headerlink" title="进入bin目录"></a>进入bin目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /apache-tomcat-8.5.35/bin/</span><br></pre></td></tr></table></figure>
+<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./startup.sh</span><br></pre></td></tr></table></figure>
+<h2 id="查看页面"><a href="#查看页面" class="headerlink" title="查看页面"></a>查看页面</h2><p>成功启动后浏览器输入<a href="http://ip:8080/查看信息" target="_blank" rel="noopener">http://ip:8080/查看信息</a></p>
+<p> <img src="https://upload-images.jianshu.io/upload_images/14481291-f3a2da1ca7e61401.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>tomcat安装完成了，后续可添加项目重启tomcat服务。</p>
+
+      
+    </div>
+    
   </div>
-</article>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/12/14/2018-12-14-Linux下Tomcat8的安装/">Linux下Tomcat8的安装</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">艾@51</a></p>
+        <p><span>发布时间:</span>2018-12-14, 14:27:33</p>
+        <p><span>最后更新:</span>2018-12-14, 15:02:02</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/12/14/2018-12-14-Linux下Tomcat8的安装/" title="Linux下Tomcat8的安装">http://yoursite.com/2018/12/14/2018-12-14-Linux下Tomcat8的安装/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/12/14/2018-12-14-Linux下Tomcat8的安装/　　作者: 艾@51" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2018/12/19/2018-12-19-java获取日期差以及几天前和几天后的时间/">
+                    java获取日期差以及几天前和几天后的时间
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/12/11/2018-12-11-CAS单点登录-配置中心/">
+                    CAS单点登录-配置中心
+                </a>
+            </div>
+        
+    </nav>
+
   
   
-    </div></section>
-  
+	
+	    <!--打赏-->
+<div class="reward">
+	<div class="reward-button">赏 <span class="reward-code">
+	  <span class="alipay-code"> <img class="alipay-img wdp-appear" src="/img/Alipay.jpg"><b>支付宝打赏</b> </span> 
+	  <span class="wechat-code"> <img class="wechat-img wdp-appear" src="/img/WeChatpay.jpg"><b>微信打赏</b> </span> 
+ 	</span></div>
+	<p class="reward-notice">如果文章对你有帮助，欢迎点击上方按钮打赏作者</p>
+</div>
+<!--打赏-->
+	
+
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#环境"><span class="toc-number">2.</span> <span class="toc-text">环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装"><span class="toc-number">3.</span> <span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载"><span class="toc-number">3.1.</span> <span class="toc-text">下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解压"><span class="toc-number">3.2.</span> <span class="toc-text">解压</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建目录"><span class="toc-number">4.</span> <span class="toc-text">创建目录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#移动文件"><span class="toc-number">4.1.</span> <span class="toc-text">移动文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进入bin目录"><span class="toc-number">4.2.</span> <span class="toc-text">进入bin目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动"><span class="toc-number">4.3.</span> <span class="toc-text">启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看页面"><span class="toc-number">4.4.</span> <span class="toc-text">查看页面</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
 
     
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Linux下Tomcat8的安装　| 艾@51的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
 
+    
 </div>
+
+
+
+
+
+
+
+    
+        <!-- ������City�氲װ���� -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80MDY2OC8xNzE5NQ==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> Ϊ����ʹ�����������۹����뼤��JavaScript</noscript>
+</div>
+<!-- City�氲װ��������� -->
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2018/12/19/2018-12-19-java获取日期差以及几天前和几天后的时间/" title="上一篇: java获取日期差以及几天前和几天后的时间">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/12/11/2018-12-11-CAS单点登录-配置中心/" title="下一篇: CAS单点登录-配置中心">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/12/19/2018-12-19-java获取日期差以及几天前和几天后的时间/">java获取日期差以及几天前和几天后的时间</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/14/2018-12-14-Linux下Tomcat8的安装/">Linux下Tomcat8的安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/11/2018-12-11-CAS单点登录-配置中心/">CAS单点登录-配置中心</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/04/2018-12-04-CAS单点登录-基础搭建/">CAS单点登录-基础搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/02/2018-12-02-CAS单点登录-简介/">CAS单点登录-简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/30/2018-11-30-MySQL的主从复制/">MySQL的主从复制</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/28/2018-11-28-Linux下下载安装jdk1.8/">Linux下下载安装jdk1.8</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/20/2018-11-20-通过Xshell6跳板机在Linux上安装MySQL5.7/">通过Xshell6跳板机在Linux上安装MySQL5.7</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/16/2018-11-16-Web安全-XSS/">Web安全-XSS</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/07/2018-11-07-微信小程序-入门/">微信小程序-入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/05/2018-11-05-Hexo主题更改以及小功能的添加/">Hexo主题更改以及小功能的添加</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/01/2018-11-01-hexo+github搭建博客/">hexo+github搭建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/31/2018-10-31-String，StringBuilder，StringBuffer的区别/">String，StringBuilder，StringBuffer的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/27/2018-10-27-学习笔记-EDAS介绍/">学习笔记-EDAS介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/10/2018-10-10-Method breakpoints may dramatically slow down debugging情况解决/">Method breakpoints may dramatically slow down debugging情况解决</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/04/2018-10-04-MYSQL limit,offset 区别/">MYSQL limit,offset 区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/2018-10-01-freemarker判断对象是否为空/">freemarker判断对象是否为空</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/28/2018-09-28-IDEA搭建和部署Maven项目/">IDEA搭建和部署Maven项目</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/22/2018-09-22-上传文件至GitHub/">上传文件至GitHub</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/15/2018-09-15-在Windows上安装Maven/">在Windows上安装Maven</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/2018-08-31-学习笔记——Spring MVC接收前端入参数据的方式/">学习笔记——Spring MVC接收前端入参数据的方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/2018-08-15-打开Navicat for mysql，显示Missing required libmysql_e.dll, 126/">打开Navicat for mysql，显示Missing required libmysql_e.dll, 126</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/04/2018-08-04-学习笔记——设计模式：MVC模式/">学习笔记——设计模式：MVC模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/30/2018-07-30-学习笔记——MyBatis入门/">学习笔记——MyBatis入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/14/2018-07-14-学习笔记——Java技术体系/">学习笔记——Java技术体系</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/02/2018-07-02-为什么Java中1000==1000为false而100==100为true/">为什么Java中1000==1000为false而100==100为true</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/25/2018-06-25-学习笔记——浏览器对象模型(Window)/">学习笔记——浏览器对象模型（Window）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/21/2018-06-21-Git安装/">Git安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/01/2018-03-01-MarkDown/">MarkDown</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/03/2017-09-03-hello-world/">Hello hexo</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+
+</aricle></div>
       <footer id="footer">
     <div class="outer">
         <div id="footer-info">
