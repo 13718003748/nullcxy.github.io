@@ -15,37 +15,26 @@
 
 
 
-<meta name="description" content="Git安装可查看我之前写过的博文">
-<meta name="keywords" content="Git">
+<meta name="description" content="前言上一篇：CAS单点登录-配置中心 下一篇：待续……">
+<meta name="keywords" content="SSO">
 <meta property="og:type" content="article">
-<meta property="og:title" content="上传文件至GitHub">
-<meta property="og:url" content="http://yoursite.com/2018/09/22/2018-09-22-上传文件至GitHub/index.html">
+<meta property="og:title" content="CAS单点登录-https配置">
+<meta property="og:url" content="http://yoursite.com/2018/12/26/2018-12-26-CAS单点登录-https配置/index.html">
 <meta property="og:site_name" content="艾@51的博客">
-<meta property="og:description" content="Git安装可查看我之前写过的博文">
+<meta property="og:description" content="前言上一篇：CAS单点登录-配置中心 下一篇：待续……">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-5ccc83fa5d8420cb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-1531b2c93bab8639.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-64b5c63f54274828.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-ac31896ef036cf75.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-1a47c215ee1f76ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-ca4402db5b53f8e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-8f9f9800bc31e199.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-6db142c4058ae462.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-b2286c20f5cc462e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-36577c6f8c82f98d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-acd8743e1d50a1cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-e601b8e0cf7daeae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-381b4ac711626171.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-59cdd735c2ba1880.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-bc9da1605978ec7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-ae1b7c36111e93a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-5496d60448fd506b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-eb891eb3a8745a2e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-11-06T06:41:46.407Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-4c36efb0d4e347cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-bcca03e188930fa0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-8e18729091fe2af2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-3184a8b62eb57132.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-f7811373a96d9425.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-27c0c466160b29f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/14481291-2f9bca3e3777424a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-12-26T09:52:17.491Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="上传文件至GitHub">
-<meta name="twitter:description" content="Git安装可查看我之前写过的博文">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/14481291-5ccc83fa5d8420cb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="CAS单点登录-https配置">
+<meta name="twitter:description" content="前言上一篇：CAS单点登录-配置中心 下一篇：待续……">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/14481291-4c36efb0d4e347cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -77,7 +66,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>上传文件至GitHub | 艾@51的博客</title>
+<title>CAS单点登录-https配置 | 艾@51的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -298,11 +287,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap"><aricle id="post-2018-09-22-上传文件至GitHub" class="article article-type-post" itemscope="" itemprop="blogPost">
+      <div class="body-wrap"><aricle id="post-2018-12-26-CAS单点登录-https配置" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/09/22/2018-09-22-上传文件至GitHub/" class="article-date">
-      <time datetime="2018-09-21T16:16:34.000Z" itemprop="datePublished">2018-09-22</time>
+      <a href="/2018/12/26/2018-12-26-CAS单点登录-https配置/" class="article-date">
+      <time datetime="2018-12-26T07:40:56.000Z" itemprop="datePublished">2018-12-26</time>
 </a>
 
 
@@ -317,7 +306,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      上传文件至GitHub
+      CAS单点登录-https配置
     </h1>
   
 
@@ -327,7 +316,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  博文字数： </span>
-        <span class="post-count">414字</span>
+        <span class="post-count">818字</span>
       </span>
     </span>
 
@@ -336,7 +325,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分钟</span>
+        <span class="post-count">3分钟</span>
       </span>
     </span>
 </div>
@@ -346,13 +335,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/工具/">工具</a>
+    <a class="article-category-link" href="/categories/CAS/">CAS</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SSO/">SSO</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -362,39 +351,71 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="Git安装"><a href="#Git安装" class="headerlink" title="Git安装"></a>Git安装</h1><p>可查看我之前写过的<a href="https://nullcxy.github.io/2018/06/21/study11/" title="Git安装" target="_blank" rel="noopener">博文</a></p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一篇：<a href="https://nullcxy.github.io/2018/12/11/2018-12-11-CAS%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95-%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/" target="_blank" rel="noopener">CAS单点登录-配置中心</a></p>
+<p>下一篇：<a href="https://nullcxy.github.io/2018/12/11/2018-12-11-CAS%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95-%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/" target="_blank" rel="noopener">待续……</a></p>
 <a id="more"></a>
-<h1 id="设置SSH-key"><a href="#设置SSH-key" class="headerlink" title="设置SSH key"></a>设置<a href="https://segmentfault.com/q/1010000000118744" target="_blank" rel="noopener">SSH key</a></h1><h2 id="查看ssh-key"><a href="#查看ssh-key" class="headerlink" title="查看ssh key"></a>查看ssh key</h2><p>可以先查看一下是否已经生成过ssh key<br><img src="https://upload-images.jianshu.io/upload_images/14481291-5ccc83fa5d8420cb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=".ssh key"><br>我这边显示已经生成过了，如果没有显示这三个文件，说明没有生成</p>
-<h2 id="生成ssh-key"><a href="#生成ssh-key" class="headerlink" title="生成ssh key"></a>生成ssh key</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C &quot;youremail@xxx.com&quot;</span><br></pre></td></tr></table></figure>
-<p>生成过程中点击Enter键三次，此时在默认路径会生成.ssh文件夹，里面有如图三个文件<br><img src="https://upload-images.jianshu.io/upload_images/14481291-1531b2c93bab8639.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=".ssh"></p>
-<h2 id="查看id-rsa-pub"><a href="#查看id-rsa-pub" class="headerlink" title="查看id_rsa.pub"></a>查看id_rsa.pub</h2><p><img src="https://upload-images.jianshu.io/upload_images/14481291-64b5c63f54274828.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="id_rsa.pub"></p>
-<h1 id="为GitHub账号配置ssh-key"><a href="#为GitHub账号配置ssh-key" class="headerlink" title="为GitHub账号配置ssh key"></a>为GitHub账号配置ssh key</h1><h2 id="Settings"><a href="#Settings" class="headerlink" title="Settings"></a>Settings</h2><p>点击头像，下拉框中有个Settings设置选项<br><img src="https://upload-images.jianshu.io/upload_images/14481291-ac31896ef036cf75.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Settings"></p>
-<h2 id="Personal-settings"><a href="#Personal-settings" class="headerlink" title="Personal settings"></a>Personal settings</h2><p>在Personal settings选择  SSH and GPG keys<br><img src="https://upload-images.jianshu.io/upload_images/14481291-1a47c215ee1f76ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="SSH and GPG keys"></p>
-<h2 id="New-SSH-key"><a href="#New-SSH-key" class="headerlink" title="New SSH key"></a>New SSH key</h2><p>点击New SSH key<br><img src="https://upload-images.jianshu.io/upload_images/14481291-ca4402db5b53f8e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="New SSH key"></p>
-<h2 id="SSH-keys-Add-new"><a href="#SSH-keys-Add-new" class="headerlink" title="SSH keys/Add new"></a>SSH keys/Add new</h2><p><img src="https://upload-images.jianshu.io/upload_images/14481291-8f9f9800bc31e199.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Add new"></p>
-<h2 id="Add后"><a href="#Add后" class="headerlink" title="Add后"></a>Add后</h2><p><img src="https://upload-images.jianshu.io/upload_images/14481291-6db142c4058ae462.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="key"></p>
-<h1 id="创建本地仓库"><a href="#创建本地仓库" class="headerlink" title="创建本地仓库"></a>创建本地仓库</h1><h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir test</span><br><span class="line"></span><br><span class="line">cd f:test</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/14481291-b2286c20f5cc462e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="test"></p>
-<h2 id="初始化本地仓库"><a href="#初始化本地仓库" class="headerlink" title="初始化本地仓库"></a>初始化本地仓库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/14481291-36577c6f8c82f98d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="init"><br>初始化后会出现.git文件夹，如图<br><img src="https://upload-images.jianshu.io/upload_images/14481291-acd8743e1d50a1cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=".git"><br>如果没有，是被隐藏了，工具-&gt;文件夹选项-&gt;查看，选择“显示隐藏的文件、文件夹和驱动器”</p>
-<h2 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h2><p>将所有文件添加到仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure></p>
-<h2 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h2><p>提交，双引号内是提交注释<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &apos;first&apos;</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/14481291-e601b8e0cf7daeae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="commit"><br>显示已经提交一个文件</p>
-<h1 id="连接GitHub"><a href="#连接GitHub" class="headerlink" title="连接GitHub"></a>连接GitHub</h1><h2 id="创建一个新的仓库"><a href="#创建一个新的仓库" class="headerlink" title="创建一个新的仓库"></a>创建一个新的仓库</h2><ol>
-<li><p>登录GitHub账号，没有可以申请一个。点击右上角“+”，选择创建一个仓库<br><img src="https://upload-images.jianshu.io/upload_images/14481291-381b4ac711626171.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" new repository"></p>
+<h1 id="https配置"><a href="#https配置" class="headerlink" title="https配置"></a>https配置</h1><p>未支持https时默认登录页</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/14481291-4c36efb0d4e347cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li><p>自签名服务端需要导入证书</p>
+<p>PS:</p>
+<ol>
+<li>passport.sso.com 是我们测试的域名</li>
+<li>测试时需要把本地机的ip映射为passport.sso.com设到系统<strong>hosts</strong>文件</li>
+</ol>
 </li>
-<li><p>定义Repository name，点击创建<br><img src="https://upload-images.jianshu.io/upload_images/14481291-59cdd735c2ba1880.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="repository"></p>
+</ul>
+<h2 id="配置hosts文件"><a href="#配置hosts文件" class="headerlink" title="配置hosts文件"></a>配置hosts文件</h2><p>在目录<code>C:\Windows\System32\drivers\etc</code>下找到并修改hosts文件</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/14481291-bcca03e188930fa0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h2 id="证书处理"><a href="#证书处理" class="headerlink" title="证书处理"></a>证书处理</h2><h3 id="生成密钥"><a href="#生成密钥" class="headerlink" title="生成密钥"></a>生成密钥</h3><p>生成步骤，各参数含义：</p>
+<blockquote>
+<p>-genkeypair 生成密钥<br>-keyalg 指定密钥算法，这时指定RSA,<br>-keysize 指定密钥长度，默认是1024位,这里指定2048，长一点，我让你破解不了（哈哈…）,<br>-siglag 指定数字签名算法，这里指定为SHA1withRSA算法<br>-validity 指定证书有效期，这里指定36500天，也就是100年，我想我的应用用不到那么长时间<br>-alias 指定别名，这里是cas.server.com<br>-keystore 指定密钥库存储位置，这里存在d盘<br>-dname 指定用户信息，不用一个一个回答它的问题了；</p>
+</blockquote>
+<p><strong>注意：CN=域名，我们采用passport.sso.com </strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -genkeypair -keyalg RSA -keysize 2048 -sigalg SHA1withRSA -validity 36500 -alias passport.sso.com -keystore x:/tomcat.keystore -dname &quot;CN=passport.sso.com,OU=kawhi,O=carl,L=GuangZhou,ST=GuangDong,C=CN&quot;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>输入上述命令，密钥库口令输入123456,然后回车，就在x盘生成了tomcat.keystore文件；</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/14481291-8e18729091fe2af2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="生成证书"><a href="#生成证书" class="headerlink" title="生成证书"></a>生成证书</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -exportcert -alias passport.sso.com -keystore x:/tomcat.keystore  -file x:/tomcat.cer -rfc</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>证书生成在：x:/tomcat.cer</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/14481291-3184a8b62eb57132.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="导入cacerts证书库"><a href="#导入cacerts证书库" class="headerlink" title="导入cacerts证书库"></a>导入cacerts证书库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -import -alias passport.sso.com -keystore %JAVA_HOME%\jre\lib\security\cacerts -file x:/tomcat.cer -trustcacerts</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>输入密码为 changeit并同意导入</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/14481291-f7811373a96d9425.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -list -keystore &quot;%JAVA_HOME%\jre\lib\security\cacerts&quot; | findstr/i server</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>检查是否导入成功，有东西输出代表成功</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/14481291-27c0c466160b29f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h2 id="项目设置"><a href="#项目设置" class="headerlink" title="项目设置"></a>项目设置</h2><p>有了证书后，让项目能够识别证书，并且把ssl开关打开</p>
+<h3 id="引用密钥"><a href="#引用密钥" class="headerlink" title="引用密钥"></a>引用密钥</h3><p>把<code>tomcat.keystore</code>拷贝到<code>sso-server\src\main\resources</code>下</p>
+<h3 id="开启ssl"><a href="#开启ssl" class="headerlink" title="开启ssl"></a>开启ssl</h3><p>文件<code>sso-config\src\main\resources\config\sso-dev.properties</code>调整</p>
+<ol>
+<li>调整<code>server.ssl.enabled=true</code></li>
+<li>新增如下：</li>
+</ol>
+<blockquote>
+<p>server.ssl.key-store=classpath:tomcat.keystore<br>server.ssl.key-store-password=123456<br>server.ssl.keyAlias=passport.sso.com</p>
+</blockquote>
+<p>提供一下完整的配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">server.context-path=/cas</span><br><span class="line">server.port=8443</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">##SSL配置</span><br><span class="line">server.ssl.enabled=true</span><br><span class="line">server.ssl.key-store=classpath:tomcat.keystore</span><br><span class="line">server.ssl.key-store-password=123456</span><br><span class="line">server.ssl.keyAlias=passport.sso.com</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">server.max-http-header-size=2097152</span><br><span class="line">server.use-forward-headers=true</span><br><span class="line">server.connection-timeout=20000</span><br><span class="line">server.error.include-stacktrace=NEVER</span><br><span class="line"></span><br><span class="line">server.tomcat.max-http-post-size=2097152</span><br><span class="line">server.tomcat.basedir=build/tomcat</span><br><span class="line">server.tomcat.accesslog.enabled=true</span><br><span class="line">server.tomcat.accesslog.pattern=%t %a &quot;%r&quot; %s (%D ms)</span><br><span class="line">server.tomcat.accesslog.suffix=.log</span><br><span class="line">server.tomcat.max-threads=10</span><br><span class="line">server.tomcat.port-header=X-Forwarded-Port</span><br><span class="line">server.tomcat.protocol-header=X-Forwarded-Proto</span><br><span class="line">server.tomcat.protocol-header-https-value=https</span><br><span class="line">server.tomcat.remote-ip-header=X-FORWARDED-FOR</span><br><span class="line">server.tomcat.uri-encoding=UTF-8</span><br><span class="line"></span><br><span class="line">spring.http.encoding.charset=UTF-8</span><br><span class="line">spring.http.encoding.enabled=true</span><br><span class="line">spring.http.encoding.force=true</span><br><span class="line"></span><br><span class="line">##</span><br><span class="line"># CAS Cloud Bus Configuration</span><br><span class="line">#</span><br><span class="line">spring.cloud.bus.enabled=false</span><br><span class="line"></span><br><span class="line">endpoints.enabled=false</span><br><span class="line">endpoints.sensitive=true</span><br><span class="line"></span><br><span class="line">endpoints.restart.enabled=false</span><br><span class="line">endpoints.shutdown.enabled=false</span><br><span class="line"></span><br><span class="line">management.security.enabled=true</span><br><span class="line">management.security.roles=ACTUATOR,ADMIN</span><br><span class="line">management.security.sessions=if_required</span><br><span class="line">management.context-path=/status</span><br><span class="line">management.add-application-context-header=false</span><br><span class="line"></span><br><span class="line">security.basic.authorize-mode=role</span><br><span class="line">security.basic.enabled=false</span><br><span class="line">security.basic.path=/cas/status/**</span><br><span class="line"></span><br><span class="line">##</span><br><span class="line"># CAS Web Application Session Configuration</span><br><span class="line">#</span><br><span class="line">server.session.timeout=300</span><br><span class="line">server.session.cookie.http-only=true</span><br><span class="line">server.session.tracking-modes=COOKIE</span><br><span class="line"></span><br><span class="line">##</span><br><span class="line"># CAS Thymeleaf View Configuration</span><br><span class="line">#</span><br><span class="line">spring.thymeleaf.encoding=UTF-8</span><br><span class="line">spring.thymeleaf.cache=true</span><br><span class="line">spring.thymeleaf.mode=HTML</span><br><span class="line">##</span><br><span class="line"># CAS Log4j Configuration</span><br><span class="line">#</span><br><span class="line"># logging.config=file:/etc/cas/log4j2.xml</span><br><span class="line">server.context-parameters.isLog4jAutoInitializationDisabled=true</span><br><span class="line"></span><br><span class="line">##</span><br><span class="line"># CAS AspectJ Configuration</span><br><span class="line">#</span><br><span class="line">spring.aop.auto=true</span><br><span class="line">spring.aop.proxy-target-class=true</span><br><span class="line"></span><br><span class="line">##</span><br><span class="line"># CAS Authentication Credentials</span><br><span class="line">#</span><br><span class="line">cas.authn.accept.users=casuser::Mellon</span><br></pre></td></tr></table></figure>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><ol>
+<li><p>重启配置中心</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn spring-boot:run</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>创建完之后的仓库<br><img src="https://upload-images.jianshu.io/upload_images/14481291-bc9da1605978ec7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="first repository"></p>
+<li><p>启动sso-server</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">build.cmd run</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>访问 <a href="https://passport.sso.com:8443/cas/login" target="_blank" rel="noopener">https://passport.sso.com:8443/cas/login</a> 如下图所示</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/14481291-2f9bca3e3777424a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 </li>
 </ol>
-<h2 id="连接GitHub-1"><a href="#连接GitHub-1" class="headerlink" title="连接GitHub"></a>连接GitHub</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://github.com/nullcxy/First-Repository.git</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/14481291-ae1b7c36111e93a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="git地址"></p>
-<h2 id="将文件推送到远程仓库"><a href="#将文件推送到远程仓库" class="headerlink" title="将文件推送到远程仓库"></a>将文件推送到远程仓库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
-<p>刚开始的时候远程仓库是空的，所以需要加上“-u”这个参数，下次再push就不需要了，如下即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/14481291-5496d60448fd506b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="push"><br>推送到远程仓库成功</p>
-<p>看一下远程仓库</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/14481291-eb891eb3a8745a2e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="success"></p>
+<p>本文参考他人博客学习整理，需要看原博客的或者查看后续文章的可以<a href="https://blog.csdn.net/u010475041/article/details/77931867" target="_blank" rel="noopener">点击</a></p>
 
       
     </div>
@@ -403,13 +424,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/09/22/2018-09-22-上传文件至GitHub/">上传文件至GitHub</a></p>
+        <p><span>本文标题:</span><a href="/2018/12/26/2018-12-26-CAS单点登录-https配置/">CAS单点登录-https配置</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">艾@51</a></p>
-        <p><span>发布时间:</span>2018-09-22, 00:16:34</p>
-        <p><span>最后更新:</span>2018-11-06, 14:41:46</p>
+        <p><span>发布时间:</span>2018-12-26, 15:40:56</p>
+        <p><span>最后更新:</span>2018-12-26, 17:52:17</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/09/22/2018-09-22-上传文件至GitHub/" title="上传文件至GitHub">http://yoursite.com/2018/09/22/2018-09-22-上传文件至GitHub/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/09/22/2018-09-22-上传文件至GitHub/　　作者: 艾@51" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/12/26/2018-12-26-CAS单点登录-https配置/" title="CAS单点登录-https配置">http://yoursite.com/2018/12/26/2018-12-26-CAS单点登录-https配置/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/12/26/2018-12-26-CAS单点登录-https配置/　　作者: 艾@51" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -421,16 +442,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/09/28/2018-09-28-IDEA搭建和部署Maven项目/">
-                    IDEA搭建和部署Maven项目
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/09/15/2018-09-15-在Windows上安装Maven/">
-                    在Windows上安装Maven
+                <a href="/2018/12/19/2018-12-19-java获取日期差以及几天前和几天后的时间/">
+                    java获取日期差以及几天前和几天后的时间
                 </a>
             </div>
         
@@ -454,7 +469,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Git安装"><span class="toc-number">1.</span> <span class="toc-text">Git安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#设置SSH-key"><span class="toc-number">2.</span> <span class="toc-text">设置SSH key</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#查看ssh-key"><span class="toc-number">2.1.</span> <span class="toc-text">查看ssh key</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成ssh-key"><span class="toc-number">2.2.</span> <span class="toc-text">生成ssh key</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看id-rsa-pub"><span class="toc-number">2.3.</span> <span class="toc-text">查看id_rsa.pub</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#为GitHub账号配置ssh-key"><span class="toc-number">3.</span> <span class="toc-text">为GitHub账号配置ssh key</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Settings"><span class="toc-number">3.1.</span> <span class="toc-text">Settings</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Personal-settings"><span class="toc-number">3.2.</span> <span class="toc-text">Personal settings</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#New-SSH-key"><span class="toc-number">3.3.</span> <span class="toc-text">New SSH key</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SSH-keys-Add-new"><span class="toc-number">3.4.</span> <span class="toc-text">SSH keys/Add new</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Add后"><span class="toc-number">3.5.</span> <span class="toc-text">Add后</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建本地仓库"><span class="toc-number">4.</span> <span class="toc-text">创建本地仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建"><span class="toc-number">4.1.</span> <span class="toc-text">创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化本地仓库"><span class="toc-number">4.2.</span> <span class="toc-text">初始化本地仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加"><span class="toc-number">4.3.</span> <span class="toc-text">添加</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提交"><span class="toc-number">4.4.</span> <span class="toc-text">提交</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#连接GitHub"><span class="toc-number">5.</span> <span class="toc-text">连接GitHub</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建一个新的仓库"><span class="toc-number">5.1.</span> <span class="toc-text">创建一个新的仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#连接GitHub-1"><span class="toc-number">5.2.</span> <span class="toc-text">连接GitHub</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将文件推送到远程仓库"><span class="toc-number">5.3.</span> <span class="toc-text">将文件推送到远程仓库</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#https配置"><span class="toc-number">2.</span> <span class="toc-text">https配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置hosts文件"><span class="toc-number">2.1.</span> <span class="toc-text">配置hosts文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#证书处理"><span class="toc-number">2.2.</span> <span class="toc-text">证书处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#生成密钥"><span class="toc-number">2.2.1.</span> <span class="toc-text">生成密钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成证书"><span class="toc-number">2.2.2.</span> <span class="toc-text">生成证书</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导入cacerts证书库"><span class="toc-number">2.2.3.</span> <span class="toc-text">导入cacerts证书库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#项目设置"><span class="toc-number">2.3.</span> <span class="toc-text">项目设置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#引用密钥"><span class="toc-number">2.3.1.</span> <span class="toc-text">引用密钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开启ssl"><span class="toc-number">2.3.2.</span> <span class="toc-text">开启ssl</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-number">2.4.</span> <span class="toc-text">测试</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -490,7 +505,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"上传文件至GitHub　| 艾@51的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"CAS单点登录-https配置　| 艾@51的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -529,15 +544,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/09/28/2018-09-28-IDEA搭建和部署Maven项目/" title="上一篇: IDEA搭建和部署Maven项目">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/09/15/2018-09-15-在Windows上安装Maven/" title="下一篇: 在Windows上安装Maven">
+            <a href="/2018/12/19/2018-12-19-java获取日期差以及几天前和几天后的时间/" title="下一篇: java获取日期差以及几天前和几天后的时间">
                 <i class="fa fa-angle-right"></i>
             </a>
         
