@@ -15,18 +15,20 @@
 
 
 
-<meta name="description" content="前言今天在搞项目的时候遇到一个问题，$.ajax 设置数据类型 applicaiton/json之后，服务器端(express)就拿不到数据，遂解决后将问题以及问题原因整理下来。">
-<meta name="keywords" content="ajax">
+<meta name="description" content="前言在旧版中，一般继承 WebMvcConfigurerAdapter类，但由于2.0后，前者已经过时，在spring boot2.x中，WebMvcConfigurerAdapter被deprecated，虽然继承WebMvcConfigurerAdapter这个类虽然有此便利，但在Spring5.0里面已经deprecated了。">
+<meta name="keywords" content="Spring Boot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="$.ajax 中的contentType类型">
-<meta property="og:url" content="http://yoursite.com/2019/01/01/2019-01-01-$.ajax-中的contentType类型/index.html">
+<meta property="og:title" content="SpringBoot 2.X配置登录拦截器">
+<meta property="og:url" content="http://yoursite.com/2019/01/10/2019-01-10-SpringBoot-2.X配置登录拦截器/index.html">
 <meta property="og:site_name" content="艾@51的博客">
-<meta property="og:description" content="前言今天在搞项目的时候遇到一个问题，$.ajax 设置数据类型 applicaiton/json之后，服务器端(express)就拿不到数据，遂解决后将问题以及问题原因整理下来。">
+<meta property="og:description" content="前言在旧版中，一般继承 WebMvcConfigurerAdapter类，但由于2.0后，前者已经过时，在spring boot2.x中，WebMvcConfigurerAdapter被deprecated，虽然继承WebMvcConfigurerAdapter这个类虽然有此便利，但在Spring5.0里面已经deprecated了。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-25T03:34:52.155Z">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/1/10/16836f6cef719148?w=494&h=728&f=png&s=80522">
+<meta property="og:updated_time" content="2019-01-25T09:29:03.775Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="$.ajax 中的contentType类型">
-<meta name="twitter:description" content="前言今天在搞项目的时候遇到一个问题，$.ajax 设置数据类型 applicaiton/json之后，服务器端(express)就拿不到数据，遂解决后将问题以及问题原因整理下来。">
+<meta name="twitter:title" content="SpringBoot 2.X配置登录拦截器">
+<meta name="twitter:description" content="前言在旧版中，一般继承 WebMvcConfigurerAdapter类，但由于2.0后，前者已经过时，在spring boot2.x中，WebMvcConfigurerAdapter被deprecated，虽然继承WebMvcConfigurerAdapter这个类虽然有此便利，但在Spring5.0里面已经deprecated了。">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/1/10/16836f6cef719148?w=494&h=728&f=png&s=80522">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +60,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>$.ajax 中的contentType类型 | 艾@51的博客</title>
+<title>SpringBoot 2.X配置登录拦截器 | 艾@51的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -279,11 +281,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap"><aricle id="post-2019-01-01-$.ajax-中的contentType类型" class="article article-type-post" itemscope="" itemprop="blogPost">
+      <div class="body-wrap"><aricle id="post-2019-01-10-SpringBoot-2.X配置登录拦截器" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/01/01/2019-01-01-$.ajax-中的contentType类型/" class="article-date">
-      <time datetime="2019-01-01T04:40:56.000Z" itemprop="datePublished">2019-01-01</time>
+      <a href="/2019/01/10/2019-01-10-SpringBoot-2.X配置登录拦截器/" class="article-date">
+      <time datetime="2019-01-10T14:30:56.000Z" itemprop="datePublished">2019-01-10</time>
 </a>
 
 
@@ -298,7 +300,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      $.ajax 中的contentType类型
+      SpringBoot 2.X配置登录拦截器
     </h1>
   
 
@@ -308,7 +310,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  博文字数： </span>
-        <span class="post-count">653字</span>
+        <span class="post-count">698字</span>
       </span>
     </span>
 
@@ -317,7 +319,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分钟</span>
+        <span class="post-count">3分钟</span>
       </span>
     </span>
 </div>
@@ -327,13 +329,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/ajax/">ajax</a>
+    <a class="article-category-link" href="/categories/Spring-Boot/">Spring Boot</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">ajax</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -343,19 +345,20 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天在搞项目的时候遇到一个问题，<code>$.ajax</code> 设置数据类型 <code>applicaiton/json</code>之后，服务器端(express)就拿不到数据，遂解决后将问题以及问题原因整理下来。</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在旧版中，一般继承 WebMvcConfigurerAdapter类，但由于2.0后，前者已经过时，在spring boot2.x中，WebMvcConfigurerAdapter被deprecated，虽然继承WebMvcConfigurerAdapter这个类虽然有此便利，但在Spring5.0里面已经deprecated了。</p>
 <a id="more"></a>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>$.ajax contentType 和 dataType , contentType 主要设置你发送给服务器的格式，dataType设置你收到服务器数据的格式。</p>
-<p>在http 请求中，get 和 post 是最常用的。在 jquery 的 ajax 中， contentType都是默认的值：<code>application/x-www-form-urlencoded</code>，这种格式的特点就是，name/value 成为一组，每组之间用 &amp; 联接，而 name与value 则是使用 = 连接。如： <code>wwwh.baidu.com/q?key=fdsa&amp;lang=zh</code> 这是get , 而 post 请求则是使用请求体，参数不在 url 中，在请求体中的参数表现形式也是: <code>key=fdsa&amp;lang=zh</code>的形式。</p>
-<p>一般，不带嵌套类型JSON：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data:&#123;</span><br><span class="line">  name:&apos;zhangsan&apos;,</span><br><span class="line">  age:&apos;15&apos; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>如果是一些复杂一点的带嵌套的JSON：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">data:&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    a: [&#123;</span><br><span class="line">      x: 2</span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><code>application/x-www-form-urlencoded</code> 是没有办法将复杂的 JSON 组织成键值对形式,你可以发送请求，但是服务端收到数据为空， 因为 ajax 不知道怎样处理这个数据。</p>
-<p><strong>解决方法:</strong></p>
-<p>发现 http 还可以自定义数据类型，于是就定义一种叫 application/json 的类型。这种类型是 text ， 我们 ajax 的复杂JSON数据，用 JSON.stringify序列化后，然后发送，在服务器端接到然后用 JSON.parse 进行还原就行了，这样就能处理复杂的对象了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">    dataType: &apos;json&apos;,</span><br><span class="line">    contentType: &apos;application/json&apos;,</span><br><span class="line">    data: JSON.stringify(&#123;a: [&#123;b:1, a:1&#125;]&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>“application/json“的作用：<br>添加 contentType：“application/json“之后，向后台发送数据的格式必须为json字符串<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">    type: &quot;post&quot;,</span><br><span class="line">    url:  &quot;&quot;,</span><br><span class="line">    contentType: &quot;application/json&quot;,</span><br><span class="line">    data:&quot;&#123;&apos;name&apos;:&apos;zhangsan&apos;,&apos;age&apos;:&apos;15&apos;&#125;&quot;,</span><br><span class="line">    dataType: &quot;json&quot;,</span><br><span class="line">    success: function(data) &#123;</span><br><span class="line">        console.log(data);</span><br><span class="line">    &#125;,</span><br><span class="line">    error: function(msg) &#123;</span><br><span class="line">        console.log(msg)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>不添加 contentType：“application/json“的时候可以向后台发送json对象形式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">    type: &quot;post&quot;,</span><br><span class="line">    url:  &quot;&quot;,</span><br><span class="line">    data:&#123;  </span><br><span class="line">        name:&apos;zhangsan&apos;,</span><br><span class="line">        age:&apos;15&apos;</span><br><span class="line">    &#125;,</span><br><span class="line">    dataType: &quot;json&quot;,</span><br><span class="line">    success: function(data) &#123;</span><br><span class="line">        console.log(data);</span><br><span class="line">    &#125;,</span><br><span class="line">    error: function(msg) &#123;</span><br><span class="line">        console.log(msg)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>另外，当向后台传递复杂json的时候，同样需要添加 <code>contentType：“application/json“</code>，然后将数据转化为字符串<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">var parm = &#123;</span><br><span class="line">    a: a,</span><br><span class="line">    b: &#123;</span><br><span class="line">        c: c,</span><br><span class="line">        d: d,</span><br><span class="line">        e: e</span><br><span class="line">    &#125;,</span><br><span class="line">    f: f</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$.ajax(&#123;  </span><br><span class="line">    type: &apos;post&apos;,</span><br><span class="line">    url: &quot;&quot;,</span><br><span class="line">    contentType: &apos;application/json&apos;,</span><br><span class="line">    data: JSON.stringify(parm),</span><br><span class="line">    dataType: &quot;json&quot;,</span><br><span class="line">    success: function(data) &#123;</span><br><span class="line">        console.log(data);</span><br><span class="line">    &#125;,</span><br><span class="line">    error: function(msg) &#123;</span><br><span class="line">        console.log(msg)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-
+<p>官方文档也说了，WebMvcConfigurer接口现在已经有了默认的空白方法，所以在Springboot2.0（Spring5.0）下更好的做法还是implements WebMvcConfigurer。</p>
+<h1 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p><img src="https://user-gold-cdn.xitu.io/2019/1/10/16836f6cef719148?w=494&amp;h=728&amp;f=png&amp;s=80522" alt="image.png"></p>
+<h2 id="拦截器-1"><a href="#拦截器-1" class="headerlink" title="拦截器"></a>拦截器</h2><p>自定义拦截器必须实现HandlerInterceptor,定义一个登录拦截器，拦截需要登录的操作，若未登录则重定向至登录界面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">package com.cxy.springboot.utils.Interceptor;</span><br><span class="line"></span><br><span class="line">import com.cxy.springboot.utils.GlobalConst;</span><br><span class="line">import com.cxy.springboot.utils.UserInfo;</span><br><span class="line">import org.slf4j.Logger;</span><br><span class="line">import org.slf4j.LoggerFactory;</span><br><span class="line">import org.springframework.web.servlet.HandlerInterceptor;</span><br><span class="line">import org.springframework.web.servlet.ModelAndView;</span><br><span class="line"></span><br><span class="line">import javax.servlet.http.HttpServletRequest;</span><br><span class="line">import javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @Auther: cxy</span><br><span class="line"> * @Date: 2019/1/10</span><br><span class="line"> * @Description: 拦截器</span><br><span class="line"> */</span><br><span class="line">public class LoginInterceptor implements HandlerInterceptor &#123;</span><br><span class="line">        private Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);</span><br><span class="line">        @Override</span><br><span class="line">        public boolean preHandle(HttpServletRequest request,</span><br><span class="line">                                 HttpServletResponse response, Object handler) throws Exception &#123;</span><br><span class="line"></span><br><span class="line">            UserInfo user = (UserInfo)request.getSession().getAttribute(GlobalConst.USER_SESSION_KEY);</span><br><span class="line">            logger.info(request.getRequestURI().toString());</span><br><span class="line">            if (user == null || user.equals(&quot;&quot;))  &#123;</span><br><span class="line">                response.sendRedirect(&quot;/login&quot;);</span><br><span class="line">                logger.info(&quot;请先登录&quot;);</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception &#123;</span><br><span class="line">            logger.info(&quot;postHandle...&quot;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception &#123;</span><br><span class="line">            logger.info(&quot;afterCompletion...&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>preHandle：在业务处理器处理请求之前被调用。预处理，可以进行编码、安全控制、权限校验等处理；</li>
+<li>postHandle：在业务处理器处理请求执行完成后，生成视图之前执行。后处理（调用了Service并返回ModelAndView，但未进行页面渲染），有机会修改ModelAndView；</li>
+<li>afterCompletion：在DispatcherServlet完全处理完请求后被调用，可用于清理资源等。返回处理（已经渲染了页面）；<h2 id="注册拦截器"><a href="#注册拦截器" class="headerlink" title="注册拦截器"></a>注册拦截器</h2>新建类  <code>WebConfigurer.java</code>，addPathPatterns 用来设置拦截路径，excludePathPatterns 用来设置白名单，也就是不需要触发这个拦截器的路径。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">package com.cxy.springboot.utils;</span><br><span class="line"></span><br><span class="line">import com.cxy.springboot.utils.Interceptor.LoginInterceptor;</span><br><span class="line">import org.springframework.context.annotation.Configuration;</span><br><span class="line">import org.springframework.web.servlet.config.annotation.*;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @Auther: cxy</span><br><span class="line"> * @Date: 2019/1/10</span><br><span class="line"> * @Description: 在web的配置文件中，实例化登陆的拦截器，并添加规则</span><br><span class="line"> */</span><br><span class="line">@Configuration</span><br><span class="line">public class WebConfigurer implements WebMvcConfigurer &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void addInterceptors(InterceptorRegistry registry) &#123;</span><br><span class="line">        registry.addInterceptor(new LoginInterceptor()).addPathPatterns(&quot;/**&quot;).excludePathPatterns(&quot;/login&quot;).excludePathPatterns(&quot;/loginSys&quot;).excludePathPatterns(&quot;/static/**&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>不管哪个版本，addResourceHandler方法是设置访问路径前缀，addResourceLocations方法设置资源路径，如果你想指定外部的目录也很简单，直接addResourceLocations指定即可，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">registry.addResourceHandler(&quot;/static/**&quot;).addResourceLocations(&quot;file:E:/cxy/&quot;);</span><br></pre></td></tr></table></figure></p>
+<h2 id="配置静态资源"><a href="#配置静态资源" class="headerlink" title="配置静态资源"></a>配置静态资源</h2><p>在application.properties 或 application.yml指定静态资源拦截，要不然静态资源会被拦截。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#配置静态资源</span><br><span class="line">spring.mvc.static-path-pattern=/static/**</span><br></pre></td></tr></table></figure></p>
+<h2 id="前台静态文件路径配置"><a href="#前台静态文件路径配置" class="headerlink" title="前台静态文件路径配置"></a>前台静态文件路径配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link th:href=&quot;@&#123;/static/js/hplus/css/bootstrap.min14ed.css&#125;&quot; rel=&quot;stylesheet&quot;&gt;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -363,13 +366,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/01/01/2019-01-01-$.ajax-中的contentType类型/">$.ajax 中的contentType类型</a></p>
+        <p><span>本文标题:</span><a href="/2019/01/10/2019-01-10-SpringBoot-2.X配置登录拦截器/">SpringBoot 2.X配置登录拦截器</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">艾@51</a></p>
-        <p><span>发布时间:</span>2019-01-01, 12:40:56</p>
-        <p><span>最后更新:</span>2019-01-25, 11:34:52</p>
+        <p><span>发布时间:</span>2019-01-10, 22:30:56</p>
+        <p><span>最后更新:</span>2019-01-25, 17:29:03</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/01/01/2019-01-01-$.ajax-中的contentType类型/" title="$.ajax 中的contentType类型">http://yoursite.com/2019/01/01/2019-01-01-$.ajax-中的contentType类型/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/01/01/2019-01-01-$.ajax-中的contentType类型/　　作者: 艾@51" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/01/10/2019-01-10-SpringBoot-2.X配置登录拦截器/" title="SpringBoot 2.X配置登录拦截器">http://yoursite.com/2019/01/10/2019-01-10-SpringBoot-2.X配置登录拦截器/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/01/10/2019-01-10-SpringBoot-2.X配置登录拦截器/　　作者: 艾@51" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -382,15 +385,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/01/10/2019-01-10-SpringBoot-2.X配置登录拦截器/">
-                    SpringBoot 2.X配置登录拦截器
+                <a href="/2019/01/19/2019-01-19-html+css+js制作一个简易计算器/">
+                    html+css+js制作一个简易计算器
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/12/26/2018-12-26-CAS单点登录-https配置/">
-                    CAS单点登录-https配置
+                <a href="/2019/01/01/2019-01-01-$.ajax-中的contentType类型/">
+                    $.ajax 中的contentType类型
                 </a>
             </div>
         
@@ -414,7 +417,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#拦截器"><span class="toc-number">2.</span> <span class="toc-text">拦截器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#目录"><span class="toc-number">2.1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拦截器-1"><span class="toc-number">2.2.</span> <span class="toc-text">拦截器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注册拦截器"><span class="toc-number">2.3.</span> <span class="toc-text">注册拦截器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置静态资源"><span class="toc-number">2.4.</span> <span class="toc-text">配置静态资源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#前台静态文件路径配置"><span class="toc-number">2.5.</span> <span class="toc-text">前台静态文件路径配置</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -450,7 +453,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"$.ajax 中的contentType类型　| 艾@51的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"SpringBoot 2.X配置登录拦截器　| 艾@51的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -489,7 +492,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/01/10/2019-01-10-SpringBoot-2.X配置登录拦截器/" title="上一篇: SpringBoot 2.X配置登录拦截器">
+            <a href="/2019/01/19/2019-01-19-html+css+js制作一个简易计算器/" title="上一篇: html+css+js制作一个简易计算器">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -497,7 +500,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/12/26/2018-12-26-CAS单点登录-https配置/" title="下一篇: CAS单点登录-https配置">
+            <a href="/2019/01/01/2019-01-01-$.ajax-中的contentType类型/" title="下一篇: $.ajax 中的contentType类型">
                 <i class="fa fa-angle-right"></i>
             </a>
         
