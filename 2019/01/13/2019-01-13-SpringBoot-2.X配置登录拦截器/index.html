@@ -15,19 +15,19 @@
 
 
 
-<meta name="description" content="前言在旧版中，一般继承 WebMvcConfigurerAdapter类，但由于2.0后，前者已经过时，在spring boot2.x中，WebMvcConfigurerAdapter被deprecated，虽然继承WebMvcConfigurerAdapter这个类虽然有此便利，但在Spring5.0里面已经deprecated了。官方文档也说了，WebMvcConfigurer接口现在已经有了">
+<meta name="description" content="前言在旧版中，一般继承 WebMvcConfigurerAdapter类，但由于2.0后，前者已经过时，在spring boot2.x中，WebMvcConfigurerAdapter被deprecated，虽然继承WebMvcConfigurerAdapter这个类虽然有此便利，但在Spring5.0里面已经deprecated了。">
 <meta name="keywords" content="Spring Boot">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot 2.X配置登录拦截器">
 <meta property="og:url" content="http://yoursite.com/2019/01/13/2019-01-13-SpringBoot-2.X配置登录拦截器/index.html">
 <meta property="og:site_name" content="艾@51的博客">
-<meta property="og:description" content="前言在旧版中，一般继承 WebMvcConfigurerAdapter类，但由于2.0后，前者已经过时，在spring boot2.x中，WebMvcConfigurerAdapter被deprecated，虽然继承WebMvcConfigurerAdapter这个类虽然有此便利，但在Spring5.0里面已经deprecated了。官方文档也说了，WebMvcConfigurer接口现在已经有了">
+<meta property="og:description" content="前言在旧版中，一般继承 WebMvcConfigurerAdapter类，但由于2.0后，前者已经过时，在spring boot2.x中，WebMvcConfigurerAdapter被deprecated，虽然继承WebMvcConfigurerAdapter这个类虽然有此便利，但在Spring5.0里面已经deprecated了。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/1/10/16836f6cef719148?w=494&h=728&f=png&s=80522">
-<meta property="og:updated_time" content="2019-01-25T01:51:12.847Z">
+<meta property="og:updated_time" content="2019-01-25T03:35:09.765Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot 2.X配置登录拦截器">
-<meta name="twitter:description" content="前言在旧版中，一般继承 WebMvcConfigurerAdapter类，但由于2.0后，前者已经过时，在spring boot2.x中，WebMvcConfigurerAdapter被deprecated，虽然继承WebMvcConfigurerAdapter这个类虽然有此便利，但在Spring5.0里面已经deprecated了。官方文档也说了，WebMvcConfigurer接口现在已经有了">
+<meta name="twitter:description" content="前言在旧版中，一般继承 WebMvcConfigurerAdapter类，但由于2.0后，前者已经过时，在spring boot2.x中，WebMvcConfigurerAdapter被deprecated，虽然继承WebMvcConfigurerAdapter这个类虽然有此便利，但在Spring5.0里面已经deprecated了。">
 <meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/1/10/16836f6cef719148?w=494&h=728&f=png&s=80522">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -345,7 +345,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在旧版中，一般继承 WebMvcConfigurerAdapter类，但由于2.0后，前者已经过时，在spring boot2.x中，WebMvcConfigurerAdapter被deprecated，虽然继承WebMvcConfigurerAdapter这个类虽然有此便利，但在Spring5.0里面已经deprecated了。<br>官方文档也说了，WebMvcConfigurer接口现在已经有了默认的空白方法，所以在Springboot2.0（Spring5.0）下更好的做法还是implements WebMvcConfigurer。</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在旧版中，一般继承 WebMvcConfigurerAdapter类，但由于2.0后，前者已经过时，在spring boot2.x中，WebMvcConfigurerAdapter被deprecated，虽然继承WebMvcConfigurerAdapter这个类虽然有此便利，但在Spring5.0里面已经deprecated了。</p>
+<a id="more"></a>
+<p>官方文档也说了，WebMvcConfigurer接口现在已经有了默认的空白方法，所以在Springboot2.0（Spring5.0）下更好的做法还是implements WebMvcConfigurer。</p>
 <h1 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p><img src="https://user-gold-cdn.xitu.io/2019/1/10/16836f6cef719148?w=494&amp;h=728&amp;f=png&amp;s=80522" alt="image.png"></p>
 <h2 id="拦截器-1"><a href="#拦截器-1" class="headerlink" title="拦截器"></a>拦截器</h2><p>自定义拦截器必须实现HandlerInterceptor,定义一个登录拦截器，拦截需要登录的操作，若未登录则重定向至登录界面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">package com.cxy.springboot.utils.Interceptor;</span><br><span class="line"></span><br><span class="line">import com.cxy.springboot.utils.GlobalConst;</span><br><span class="line">import com.cxy.springboot.utils.UserInfo;</span><br><span class="line">import org.slf4j.Logger;</span><br><span class="line">import org.slf4j.LoggerFactory;</span><br><span class="line">import org.springframework.web.servlet.HandlerInterceptor;</span><br><span class="line">import org.springframework.web.servlet.ModelAndView;</span><br><span class="line"></span><br><span class="line">import javax.servlet.http.HttpServletRequest;</span><br><span class="line">import javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @Auther: cxy</span><br><span class="line"> * @Date: 2019/1/10</span><br><span class="line"> * @Description: 拦截器</span><br><span class="line"> */</span><br><span class="line">public class LoginInterceptor implements HandlerInterceptor &#123;</span><br><span class="line">        private Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);</span><br><span class="line">        @Override</span><br><span class="line">        public boolean preHandle(HttpServletRequest request,</span><br><span class="line">                                 HttpServletResponse response, Object handler) throws Exception &#123;</span><br><span class="line"></span><br><span class="line">            UserInfo user = (UserInfo)request.getSession().getAttribute(GlobalConst.USER_SESSION_KEY);</span><br><span class="line">            logger.info(request.getRequestURI().toString());</span><br><span class="line">            if (user == null || user.equals(&quot;&quot;))  &#123;</span><br><span class="line">                response.sendRedirect(&quot;/login&quot;);</span><br><span class="line">                logger.info(&quot;请先登录&quot;);</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception &#123;</span><br><span class="line">            logger.info(&quot;postHandle...&quot;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception &#123;</span><br><span class="line">            logger.info(&quot;afterCompletion...&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <ol>
@@ -367,7 +369,7 @@
         <p><span>本文标题:</span><a href="/2019/01/13/2019-01-13-SpringBoot-2.X配置登录拦截器/">SpringBoot 2.X配置登录拦截器</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">艾@51</a></p>
         <p><span>发布时间:</span>2019-01-13, 22:30:56</p>
-        <p><span>最后更新:</span>2019-01-25, 09:51:12</p>
+        <p><span>最后更新:</span>2019-01-25, 11:35:09</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/01/13/2019-01-13-SpringBoot-2.X配置登录拦截器/" title="SpringBoot 2.X配置登录拦截器">http://yoursite.com/2019/01/13/2019-01-13-SpringBoot-2.X配置登录拦截器/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/01/13/2019-01-13-SpringBoot-2.X配置登录拦截器/　　作者: 艾@51" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
