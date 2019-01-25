@@ -33,7 +33,7 @@
 
 
 
-    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="shortcut icon" href="img/head/favicon.png">
 
 
 
@@ -72,12 +72,14 @@
         isCategory: true,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
-        search: 
+        search: true
     }
 </script>
 
 
-    <script> yiliaConfig.jquery_ui = [false]; </script>
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
 
 
 
@@ -106,6 +108,13 @@
         <p class="header-subtitle">艾@51</p>
         
 
+        
+            <form id="search-form">
+	            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false">
+	            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class="no-result">No results found <i class="fa fa-spinner fa-pulse"></i></p>
         
 
 
@@ -163,6 +172,8 @@
                         
                             <li><a href="/tags/">标签云</a></li>
                         
+                            <li><a href="/photos/">相册</a></li>
+                        
                             <li><a href="/about/">关于我</a></li>
                         
                         </ul>
@@ -170,11 +181,13 @@
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" href="mailto:1287530995@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                                <a class="fa GitHub" href="https://github.com/nullcxy" title="GitHub"></a>
                             
-                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                                <a class="fa 简书" href="https://www.jianshu.com/u/5e0ee1ba74c6" title="简书"></a>
+                            
+                                <a class="fa QQ" href="tencent://message/?Menu=yes&uin=1287530995&Service=300&sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a595b1714f9d45" title="QQ"></a>
                             
                         </ul>
                     </nav>
@@ -206,7 +219,7 @@
                 
                 <section class="switch-part switch-part4">
                 
-                    <div id="js-aboutme">专注于前端</div>
+                    <div id="js-aboutme">知世故而不世故才是最善良的成熟</div>
                 </section>
                 
             </div>
@@ -240,6 +253,8 @@
                 
                     <li><a href="/tags/">标签云</a></li>
                 
+                    <li><a href="/photos/">相册</a></li>
+                
                     <li><a href="/about/">关于我</a></li>
                 
                 <div class="clearfix"></div>
@@ -248,11 +263,13 @@
             <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" target="_blank" href="mailto:1287530995@qq.com" title="Email"></a>
                             
-                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                                <a class="fa GitHub" target="_blank" href="https://github.com/nullcxy" title="GitHub"></a>
                             
-                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                                <a class="fa 简书" target="_blank" href="https://www.jianshu.com/u/5e0ee1ba74c6" title="简书"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="tencent://message/?Menu=yes&uin=1287530995&Service=300&sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a595b1714f9d45" title="QQ"></a>
                             
                         </ul>
             </nav>
@@ -357,30 +374,55 @@
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i> 
-                2016-2019 艾@51
+                2018-2019 艾@51
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                
             </div>
         </div>
         
-            <div class="visit">
-                
-                    <span id="busuanzi_container_site_pv" style="display:none">
-                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
-                        </span>
-                    </span>
-                
-                
-                    <span>| </span>
-                
-                
-                    <span id="busuanzi_container_page_pv" style="display:none">
-                        <span id="page-visit" title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
-                        </span>
-                    </span>
-                
-            </div>
+        <div>
+					<span id="busuanzi_container_site_uv" style="margin-left: -100px;">
+					  	您是第<span id="busuanzi_value_site_uv"></span>位访客 | 
+					</span>
+					
+	        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	        <span id="busuanzi_container_site_pv">
+					    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+					</span>
+				</div>
+				
+				
+				<div>
+        <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+				<script>
+				    var now = new Date(); 
+				    function createtime() { 
+				        var grt= new Date("07/01/2018 12:49:00");//此处修改你的建站时间或者网站上线时间 
+				        now.setTime(now.getTime()+250); 
+				        days = (now - grt ) / 1000 / 60 / 60 / 24; 
+				        dnum = Math.floor(days); 
+				        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); 
+				        hnum = Math.floor(hours); 
+				        if(String(hnum).length ==1 ){
+				        	hnum = "0" + hnum;
+				        } 
+				        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+				        mnum = Math.floor(minutes); 
+				        if(String(mnum).length ==1 ){
+				        	mnum = "0" + mnum;
+				        } 
+				        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+				        snum = Math.round(seconds); 
+				        if(String(snum).length ==1 ){
+				        	snum = "0" + snum;
+				        } 
+				        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+				        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+				    } 
+						setInterval("createtime()",250);
+				</script>
+				</div>
         
     </div>
 </footer>
@@ -435,8 +477,28 @@
     
 </script>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
+    <script>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+                clearTimeout(titleTime);
+            }
+            else {
+                document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+                titleTime = setTimeout(function() {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        })
+    </script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script type="text/javascript" src="/resources/float.js"></script>
+<script type="text/javascript" src="/resources/love.js"></script>
+<script type="text/javascript" color="0,104,183" opacity="1" zindex="-1" count="50" src="/resources/particle.js"></script>
+<script type="text/javascript" src="/resources/typewriter.js"></script>
   </div>
 <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"live2d-widget-model-miku"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
