@@ -333,30 +333,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>微信在 <code>v5.3.1</code> 版本中逐步引入的消息撤回功能，可以撤回两分钟之内后悔已经发出的消息。这个功能嘛，本来也无可厚非。可我总会止不住好奇，你到底说了啥？！说了啥？！</p>
-<p><img src="https://cdn.sspai.com/2017/09/06/6b4018afc200788045a8b84812194c93.jpeg?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1" alt="小婊砸们又在玩撤回游戏了，摔"></p>
-<p>每每这种时候，我如果错过了真相的那一秒，确实非常想摔手机！说实话，很蓝瘦。已经越狱的 iPhone 和 root 过权限的 Android 设备都可以通过相关的插件来获知已经被撤回的消息内容，而桌面客户端却总是拿这种情况一点办法都没有，一直盯着屏幕也不是办法。</p>
-<p>还好 <a href="https://github.com/Sunnyyoung" target="_blank" rel="noopener">@Sunnyyoung</a> 在 GitHub 上开源了一个Mac 端可使用的动态库注入方式实现的插件 <a href="https://github.com/Sunnyyoung/WeChatTweak-macOS" target="_blank" rel="noopener">WeChatTweak-macOS</a> 来解决上面的两个烦人的问题。</p>
-<p>安装这个插件需要使用 Git 工具从 GitHub 下载最新的源代码到本机编译。首先，现在 Terminal 中拉取最新的源码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/Sunnyyoung/WeChatTweak-macOS.git</span><br></pre></td></tr></table></figure>
-<p>然后在源码目录中进行编译：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd WeChatTweak-macOS</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
-<p>编译完成后重启微信即可启用插件。如果你想卸载这个插件也很简单，只需要在源码目录中执行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo make uninstall</span><br></pre></td></tr></table></figure>
-<p>如此便可以轻松卸载了。</p>
-<p>安装插件后的微信客户端设置中多了一个新的 Tweak 选项卡：</p>
-<p><img src="https://cdn.sspai.com/2017/09/06/38fec2f89d30caf8227a94544d62fb76.jpg?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1" alt="Tweak 设置">Tweak 设置</p>
-<p>在这个选项卡中你可以设定每次登陆 Mac 微信桌面客户端时是否需要手机客户端点击确认来认证身份，如果你使用 Mac 的安全习惯良好的话，开启这个功能会方便很多，尤其是在你没有携带手机的情况下。</p>
-<p>第二个功能是消息撤回的通知。你可选择接收所有的消息撤回通知、也可以关闭，还可以按照系统设定，该通知的群组和人通知、不需要通知的不通知。</p>
-<p>多开的方式也很直观便捷：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/1/25/168844fe263ad2dc?w=1724&amp;h=1534&amp;f=png&amp;s=3225009" alt=""></p>
-<p>直接在 Dock 栏上右键微信图标，选择「登陆新的微信账号」就可以打开新的微信登陆窗口了。</p>
-<hr>
-<p>部分读者朋友反映安装了插件之后聊天记录丢失的问题，可以通过迁移聊天记录的方式来解决：</p>
-<p>执行以下命令即可迁移聊天记录：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -R ~/Library/Containers/com.tencent.xinWeChat/Data/Library/Application\ Support/com.tencent.xinWeChat ~/Library/Application\ Support/com.tencent.xinWeChat</span><br></pre></td></tr></table></figure>
-<p>同样的，假如是卸载操作，需要把聊天记录迁移回原版微信中，执行以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -R ~/Library/Application\ Support/com.tencent.xinWeChat ~/Library/Containers/com.tencent.xinWeChat/Data/Library/Application\ Support/com.tencent.xinWeChat</span><br></pre></td></tr></table></figure>
+              <p>微信在 <code>v5.3.1</code> 版本中逐步引入的消息撤回功能，可以撤回两分钟之内后悔已经发出的消息。这个功能嘛，本来也无可厚非。可我总会止不住好奇，你到底说了啥？！说了啥？！</p>
+          
       
     </div>
     
@@ -373,6 +351,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WeChatTweak/">WeChatTweak</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2019/01/25/2019-01-25-在-Mac-上多开微信，还能看到朋友撤回的信息：WeChatTweak/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
